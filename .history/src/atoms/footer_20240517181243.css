@@ -1,0 +1,22 @@
+.footer{
+    height: 50%;
+    /* width: 100%; */
+    background-color: rgb(36, 36, 36);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-ic{
+width: 9%;
+}
+
+.site-link{
+font-size: 1rem;
+color: gray;
+margin-top: 10px;
+}

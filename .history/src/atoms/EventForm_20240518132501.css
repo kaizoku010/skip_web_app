@@ -1,0 +1,12 @@
+.evt-form {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    background-color: blue;
+}
+.inner-form {
+    width: 50%;
+    height: 480px;
+    background-color: red;
+    align-self: center;
+}

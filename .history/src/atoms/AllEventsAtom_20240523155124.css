@@ -1,0 +1,54 @@
+.all-Godly-people{
+    height: 100vh;
+
+    margin-top: 2rem;
+    /* background-color: red; */
+    padding: 2rem;
+}
+
+.ev-titled{
+    color: white;
+    font-size: 35px;
+    line-height: 1;
+    font-weight: 100;
+    letter-spacing: 0em;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    text-align: left;
+    margin-bottom: 5rem;
+
+}
+
+.holders{
+    display: flex;
+    max-width: 100%;
+        margin-left: 10px;
+        gap: 30px;
+        justify-content: center;
+
+}
+
+.spaceMan{
+    margin-left: 10px;
+}
+.events-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+  }
+  
+  .event-item {
+    flex: 0 0 calc(33.333% - 20px); /* 3 items per row with some margin */
+    margin: 10px;
+  }
+  @media only screen and (max-width: 800px) {
+/* 
+  /* .holders {
+    display: flex;
+    max-width: 100%;
+    gap: 30px;
+    justify-content: center;
+} */ */
+  }

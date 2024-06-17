@@ -1,0 +1,17 @@
+.iconBox{
+display: flex;
+/* gap: 5; */
+}
+
+.ic{
+    color: white;
+}
+
+.ic-name{
+    margin-left: 5px;
+    width: 35%;
+    color: white;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    font-size: 21px;
+    font-weight: 200;
+}

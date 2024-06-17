@@ -1,0 +1,12 @@
+.evt-form {
+display: flex;
+flex: 1;
+height: 100%;
+background-color: black;
+}
+.inner-form {
+  width: 50%;
+  height: 480px;
+  background-color: red;
+  color: "white";
+}

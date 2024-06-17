@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+
+    font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif"; -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 17px;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  background-color: #050b0e;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*{
+  margin: 0;
+}
+
+
+.glassy{
+  background-color: rgb(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.heaven {
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 0em;
+  font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.title{
+  color: white;
+  font-weight: 600;
+  font-size: 56px;
+  /* line-height: 1.0714285714; */
+  letter-spacing: -0.005em;
+}

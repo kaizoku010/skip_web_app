@@ -1,0 +1,9 @@
+.event-title-details{
+    .typography-modal-headline {
+        font-size: 56px;
+        line-height: 1.0714285714;
+        font-weight: 600;
+        letter-spacing: -0.005em;
+        font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+}
