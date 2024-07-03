@@ -265,7 +265,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
                       Select Industry
                     </option>
                     {industries.map((industry) => (
-                      <option key={industry} value={industry} >
+                      <option key={industry} value={industry}>
                         {industry}
                       </option>
                     ))}

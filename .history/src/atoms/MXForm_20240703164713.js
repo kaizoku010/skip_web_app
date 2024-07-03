@@ -28,26 +28,6 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
   const [gender, setGender] = useState("");
   const [industry, setIndustry] = useState("");
 
-  const industries = [
-    "Technology",
-    "Healthcare",
-    "Finance",
-    "Education",
-    "Retail",
-    "Manufacturing",
-    "Construction",
-    "Transportation",
-    "Government",
-    "Agriculture",
-    "Real Estate",
-    "Education",
-    "Restaurants",
-    "Casinos",
-    "Advertising",
-    "Sports",
-    "Security",
-    "Travel"
-  ];
   useEffect(() => {
     const typeCheck = JSON.stringify(type_);
     setType(typeCheck);
@@ -243,33 +223,22 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
                   />
                 </div>
                 <div className="nice-form-group">
-                  <select
+                  <input
+                    type="text"
+                    placeholder="Gender"
                     value={gender}
                     onChange={(e) => setGender(e.target.value)}
                     required
-                  >
-                    <option value="" disabled>
-                      Select Gender
-                    </option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                  </select>
+                  />
                 </div>
-                <div id="groupd" className="nice-form-group">
-                  <select
+                <div className="nice-form-group">
+                  <input
+                    type="text"
+                    placeholder="Industry"
                     value={industry}
                     onChange={(e) => setIndustry(e.target.value)}
                     required
-                  >
-                    <option value="" disabled>
-                      Select Industry
-                    </option>
-                    {industries.map((industry) => (
-                      <option key={industry} value={industry} >
-                        {industry}
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </div>
                 <div className="nice-form-group">
                   <label className="sub-title"> Add Profile Image</label>

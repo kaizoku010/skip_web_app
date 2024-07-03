@@ -25,29 +25,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
   const [newcode, setNewCode] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [type, setType] = useState("");
-  const [gender, setGender] = useState("");
-  const [industry, setIndustry] = useState("");
 
-  const industries = [
-    "Technology",
-    "Healthcare",
-    "Finance",
-    "Education",
-    "Retail",
-    "Manufacturing",
-    "Construction",
-    "Transportation",
-    "Government",
-    "Agriculture",
-    "Real Estate",
-    "Education",
-    "Restaurants",
-    "Casinos",
-    "Advertising",
-    "Sports",
-    "Security",
-    "Travel"
-  ];
   useEffect(() => {
     const typeCheck = JSON.stringify(type_);
     setType(typeCheck);
@@ -58,6 +36,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
     setImage(e.target.files[0]);
   };
 
+  //setting up flutterwave..
   const config = {
     public_key: "FLWPUBK_TEST-5fcf603e21cc67bcaddbaca6efae6956-X",
     tx_ref: Date.now(),
@@ -119,10 +98,67 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!name || !email || !simu || !job || !office || !image) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const imageFileName = `${uuidv4()}-${image.name}`;
+      const imageUrl = await uploadImageToS3(image, imageFileName);
+      const code = uuidv4().substring(0, 6);
+
+      setNewCode(code);
+
+      const attributeList = [
+        new CognitoUserAttribute({ Name: "name", Value: name }),
+        new CognitoUserAttribute({ Name: "email", Value: email }),
+        new CognitoUserAttribute({ Name: "phone_number", Value: simu }),
+        new CognitoUserAttribute({ Name: "picture", Value: imageUrl }),
+      ];
+
+      const cognitoUser = await signUpUser(email, code, attributeList);
+
+      const formData = {
+        name: name,
+        occupation: job,
+        email: email,
+        office: office,
+        image: imageUrl,
+        password: code,
+        selectedEvent: id,
+        phonenumber: simu,
+        uid: cognitoUser.getUsername(),
+        pricePaid: type === "Paid" ? price : 0,
+      };
+
+      await addAttendeeToDynamoDB(formData);
+
+      setSuccess(true);
+      onRegistrationSuccess();
+    } catch (error) {
+      console.error("Registration Error:", error.message);
+      setErrorMessage("An error occurred while processing your registration.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handlePaymentCallback = async (response) => {
     console.log(response);
     if (response.status === "successful") {
       try {
+        if (!name || !email || !simu || !job || !office || !image) {
+          alert("Please fill in all fields before proceeding with payment.");
+          closePaymentModal();
+          return;
+        }
+
         setLoading(true);
 
         const imageFileName = `${uuidv4()}-${image.name}`;
@@ -151,8 +187,6 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
           phonenumber: simu,
           uid: cognitoUser.getUsername(),
           pricePaid: price,
-          gender: gender,
-          industry: industry,
         };
 
         await addAttendeeToDynamoDB(formData);
@@ -186,7 +220,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
     onClose: () => {},
   };
 
-  const isFormValid = name && email && simu && job && office && image && gender && industry;
+  const isFormValid = name && email && simu && job && office && image;
 
   return (
     <div className="form-holder" style={{ display: "flex" }}>
@@ -194,7 +228,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
         <div className="div-1">
           <div className="login-holder flex-form">
             <div className="well">
-              <form onSubmit={(e) => e.preventDefault()} className="material-form">
+              <form onSubmit={handleSubmit} className="material-form">
                 <div className="flexMeForm">
                   <div className="nice-form-group enlarge">
                     <input
@@ -241,35 +275,15 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
                     onChange={(e) => setJob(e.target.value)}
                     required
                   />
-                </div>
-                <div className="nice-form-group">
-                  <select
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
+
+<div className="nice-form-group">
+                  <input
+                    type="text"
+                    placeholder="Gener"
+                    value={job}
+                    onChange={(e) => setJob(e.target.value)}
                     required
-                  >
-                    <option value="" disabled>
-                      Select Gender
-                    </option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                  </select>
-                </div>
-                <div id="groupd" className="nice-form-group">
-                  <select
-                    value={industry}
-                    onChange={(e) => setIndustry(e.target.value)}
-                    required
-                  >
-                    <option value="" disabled>
-                      Select Industry
-                    </option>
-                    {industries.map((industry) => (
-                      <option key={industry} value={industry} >
-                        {industry}
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </div>
                 <div className="nice-form-group">
                   <label className="sub-title"> Add Profile Image</label>
@@ -289,7 +303,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
                     />
                   </div>
                 ) : (
-                  <button type="submit" className="btn-" onClick={handlePaymentCallback}>
+                  <button type="submit" className="btn-">
                     Submit
                   </button>
                 )}

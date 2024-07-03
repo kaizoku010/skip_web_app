@@ -6,8 +6,8 @@
     justify-content: center;
     align-items: center;
   }
-  .flutterwave-div >button:hover  {
-    cursor: pointer;
+  .flutterwave-div{
+
   }
 
 .flutterwave-div > button {
@@ -407,14 +407,8 @@ display: none !important;
   
 }
 
-#groupd{
-  display: flex;
-  background-color: red;
-}
-
 .material-form{
   display: flex;
-
   flex-direction: column;
 }
 
@@ -455,23 +449,6 @@ flex-direction: column;
 .profile-img{
   /* margin-left: 20px; */
   margin-bottom: 25px;
-}
-
-
-.form-wrapper {
-  width: 90%;
-  max-width: 500px;
-  padding: 20px;
-  background-color: white; /* Change this as needed */
-  border-radius: 10px; /* Optional, for rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional, for a subtle shadow */
-}
-
-.form-holder {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 @media only screen and (max-width: 600px) {

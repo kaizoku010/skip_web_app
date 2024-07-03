@@ -407,14 +407,8 @@ display: none !important;
   
 }
 
-#groupd{
-  display: flex;
-  background-color: red;
-}
-
 .material-form{
   display: flex;
-
   flex-direction: column;
 }
 

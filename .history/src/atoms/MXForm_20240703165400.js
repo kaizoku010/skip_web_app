@@ -255,7 +255,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
                     <option value="Female">Female</option>
                   </select>
                 </div>
-                <div id="groupd" className="nice-form-group">
+                <div className="nice-form-group">
                   <select
                     value={industry}
                     onChange={(e) => setIndustry(e.target.value)}
@@ -265,7 +265,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
                       Select Industry
                     </option>
                     {industries.map((industry) => (
-                      <option key={industry} value={industry} >
+                      <option key={industry} value={industry}>
                         {industry}
                       </option>
                     ))}

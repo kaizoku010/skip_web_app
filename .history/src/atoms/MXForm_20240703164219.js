@@ -41,13 +41,14 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
     "Agriculture",
     "Real Estate",
     "Education",
-    "Restaurants",
+    "Resturants",
     "Casinos",
     "Advertising",
     "Sports",
     "Security",
-    "Travel"
+    "Travel & Tourism"
   ];
+
   useEffect(() => {
     const typeCheck = JSON.stringify(type_);
     setType(typeCheck);
@@ -119,52 +120,63 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!name || !email || !simu || !job || !office || !image || !gender || !industry) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const imageFileName = `${uuidv4()}-${image.name}`;
+      const imageUrl = await uploadImageToS3(image, imageFileName);
+      const code = uuidv4().substring(0, 6);
+
+      setNewCode(code);
+
+      const attributeList = [
+        new CognitoUserAttribute({ Name: "name", Value: name }),
+        new CognitoUserAttribute({ Name: "email", Value: email }),
+        new CognitoUserAttribute({ Name: "phone_number", Value: simu }),
+        new CognitoUserAttribute({ Name: "picture", Value: imageUrl }),
+      ];
+
+      const cognitoUser = await signUpUser(email, code, attributeList);
+
+      const formData = {
+        name: name,
+        occupation: job,
+        email: email,
+        office: office,
+        image: imageUrl,
+        password: code,
+        selectedEvent: id,
+        phonenumber: simu,
+        uid: cognitoUser.getUsername(),
+        pricePaid: type === "Paid" ? price : 0,
+        gender: gender,
+        industry: industry,
+      };
+
+      await addAttendeeToDynamoDB(formData);
+
+      setSuccess(true);
+      onRegistrationSuccess();
+    } catch (error) {
+      console.error("Registration Error:", error.message);
+      setErrorMessage("An error occurred while processing your registration.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handlePaymentCallback = async (response) => {
     console.log(response);
     if (response.status === "successful") {
-      try {
-        setLoading(true);
-
-        const imageFileName = `${uuidv4()}-${image.name}`;
-        const imageUrl = await uploadImageToS3(image, imageFileName);
-        const code = uuidv4().substring(0, 6);
-
-        setNewCode(code);
-
-        const attributeList = [
-          new CognitoUserAttribute({ Name: "name", Value: name }),
-          new CognitoUserAttribute({ Name: "email", Value: email }),
-          new CognitoUserAttribute({ Name: "phone_number", Value: simu }),
-          new CognitoUserAttribute({ Name: "picture", Value: imageUrl }),
-        ];
-
-        const cognitoUser = await signUpUser(email, code, attributeList);
-
-        const formData = {
-          name: name,
-          occupation: job,
-          email: email,
-          office: office,
-          image: imageUrl,
-          password: code,
-          selectedEvent: id,
-          phonenumber: simu,
-          uid: cognitoUser.getUsername(),
-          pricePaid: price,
-          gender: gender,
-          industry: industry,
-        };
-
-        await addAttendeeToDynamoDB(formData);
-
-        setSuccess(true);
-        onRegistrationSuccess();
-      } catch (error) {
-        console.error("Registration Error:", error.message);
-        setErrorMessage("An error occurred while processing your registration.");
-      } finally {
-        setLoading(false);
-      }
+      handleSubmit();
     }
     closePaymentModal();
   };
@@ -194,7 +206,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
         <div className="div-1">
           <div className="login-holder flex-form">
             <div className="well">
-              <form onSubmit={(e) => e.preventDefault()} className="material-form">
+              <form onSubmit={type_ === "Paid" ? (e) => e.preventDefault() : handleSubmit} className="material-form">
                 <div className="flexMeForm">
                   <div className="nice-form-group enlarge">
                     <input
@@ -243,31 +255,17 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
                   />
                 </div>
                 <div className="nice-form-group">
-                  <select
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
-                    required
-                  >
-                    <option value="" disabled>
-                      Select Gender
-                    </option>
+                  <select value={gender} onChange={(e) => setGender(e.target.value)} required>
+                    <option value="" disabled>Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                   </select>
                 </div>
-                <div id="groupd" className="nice-form-group">
-                  <select
-                    value={industry}
-                    onChange={(e) => setIndustry(e.target.value)}
-                    required
-                  >
-                    <option value="" disabled>
-                      Select Industry
-                    </option>
-                    {industries.map((industry) => (
-                      <option key={industry} value={industry} >
-                        {industry}
-                      </option>
+                <div className="nice-form-group">
+                  <select value={industry} onChange={(e) => setIndustry(e.target.value)} required>
+                    <option value="" disabled>Select Industry</option>
+                    {industries.map((ind, index) => (
+                      <option key={index} value={ind}>{ind}</option>
                     ))}
                   </select>
                 </div>
@@ -282,26 +280,18 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
                   />
                 </div>
                 {type_ === "Paid" ? (
-                  <div className="flutterwave-div">
+                  <div className="login-button-holder">
                     <FlutterWaveButton
                       {...openPayments}
-                      disabled={!isFormValid}
+                      disabled={!isFormValid || loading}
+                      className="fluterwave-button"
                     />
                   </div>
                 ) : (
-                  <button type="submit" className="btn-" onClick={handlePaymentCallback}>
-                    Submit
-                  </button>
-                )}
-                <Link to="/">
-                  <button type="button" className="btn-">
-                    Back
-                  </button>
-                </Link>
-                {loading && (
-                  <div className="progress-bar">
-                    <div className="spinner"></div>
-                    <p>Please wait...</p>
+                  <div className="login-button-holder">
+                    <button type="submit" className="login-btn" disabled={!isFormValid || loading}>
+                      {loading ? "Submitting..." : "Submit"}
+                    </button>
                   </div>
                 )}
               </form>
@@ -326,7 +316,7 @@ function MXForm({ price, eventName, id, type_, onRegistrationSuccess }) {
             >
               <FontAwesomeIcon icon={faCopy} /> Copy Password
             </button>
-            <button className="copy-pass" onClick={() => backtoApp()}>
+            <button className="copy-pass" onClick={backtoApp}>
               <FontAwesomeIcon icon={faCopy} /> Back to App
             </button>
           </p>
