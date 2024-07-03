@@ -1,0 +1,168 @@
+.kings-holder{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.welcome-note{
+    font-size: 56px;
+    line-height: 1.0714285714;
+    font-weight: 600;
+    color: white;
+    align-items: left !important;
+    letter-spacing: -0.005em;
+}
+
+.greetings{
+    color: white;
+    /* font-size: rem; */
+}
+
+.events-mx{
+color: white;
+font-weight: 400;
+
+}
+
+.heading {
+    color: white;
+    font-size: 35px;
+    line-height: 1;
+    font-weight: 100;
+    letter-spacing: 0em;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+
+.heading-holder{
+    padding-left: 2rem;
+        text-align: left;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+}
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .welcome-note {
+        font-size: 2rem;
+        line-height: 1.0714285714;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 1rem;
+        align-items: left !important;
+        letter-spacing: -0.005em;
+    }
+    .heading {
+        color: white;
+        font-size: 25px;
+        line-height: 1;
+        font-weight: 100;
+        letter-spacing: 0em;
+        font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+
+
+    .host {
+        margin: 2rem !important;
+        margin-top: 36px;
+        color: white;
+        padding: 1rem;
+        border-radius: 5rem;
+    }
+    .header_ {
+        /* width: 100%; */
+        /* height: 35rem; */
+        border-radius: 3rem;
+        background-color: rgb(255, 255, 255, 0.2);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        margin: 1%;
+    }
+
+    .new-event-name {
+        color: white;
+        font-weight: 600;
+        font-size: 32px !important;
+        /* line-height: 1.0714285714; */
+        letter-spacing: -0.005em;
+    }
+    .new-event-desc {
+        width: 100% !important;
+        color: white;
+        text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+        font-size: 21px;
+        /* font-weight: 200; */
+        font-weight: 300 !important;
+
+    }
+    .rsvp {
+        border-radius: 50px;
+        padding: 1rem;
+        border: 2px solid white;
+        color: white;
+        width: 7rem;
+        /* font-size: 1rem; */
+
+        background-color: transparent;
+        text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .host-here {
+        display: block !important;
+        width: 100%;
+        height: -moz-fit-content;
+        height: fit-content;
+    }
+
+.read-more {
+    border-radius: 50px;
+    border-color: transparent;
+    padding: 1rem;
+    width: 200px;
+    margin-right: 0.5rem;
+}
+
+
+.event-details {
+    /* background-color: red; */
+    text-align: left;
+    padding: 1rem;
+    /* margin: 1rem; */
+    border-radius: 1rem;
+    /* background-image: linear-gradient(0deg, hsla(0, 0%, 35.29%, 0) 0%, hsla(0, 0%, 34.53%, 0.034375) 16.36%, hsla(0, 0%, 32.42%, 0.125) 33.34%, hsla(0, 0%, 29.18%, 0.253125) 50.1%, hsla(0, 0%, 24.96%, 0.4) 65.75%, hsla(0, 0%, 19.85%, 0.546875) 79.43%, hsla(0, 0%, 13.95%, 0.675) 90.28%, hsla(0, 0%, 7.32%, 0.765625) 97.43%, hsla(0, 0%, 0%, 0.8) 100%); */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+}
+
+
+.heading-holder {
+    margin-bottom: 2rem;
+    padding: 0rem 2rem 0rem 1rem  !important;
+}
+
+.ev-titled {
+    color: white;
+    font-size: 35px;
+    line-height: 1;
+    font-weight: 100;
+    letter-spacing: 0em;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    text-align: left;
+    margin-bottom: 1rem !important;
+}
+
+.event-holder {
+    color: white;
+    height: 600px;
+    padding-bottom: 20px;
+    border-radius: 2rem;
+    height: 38em !important;
+}
+
+}
