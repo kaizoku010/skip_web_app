@@ -1,0 +1,25 @@
+.register_page{
+    /* background-position: bottom; */
+    background-size: cover;
+    background-image: url("../assets/bree.png") !important;
+}
+
+
+.bbc{
+    color: black !important;
+}
+
+.consent_text{
+    margin-top: 5%;
+    color: rgb(59, 59, 216);
+    font-weight: 600;
+    
+}
+
+@media only screen and (max-width: 600px) {
+
+    .create_mobile{
+        
+    }
+
+}

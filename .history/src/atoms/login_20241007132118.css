@@ -1,0 +1,41 @@
+.login_email_input{
+    width: 80% !important;
+}
+
+.or{
+    margin-bottom: 0px;
+    padding: 5%;
+    color: rgb(182, 181, 181);
+    align-self: center;
+}
+
+.create_ac_link{
+    align-items: center !important;
+    color: rgb(98, 147, 238) !important;
+}
+
+.@media only screen and (max-width: 600px) {
+
+
+
+.create_account_area{
+    cursor: pointer;
+justify-content: center;
+}
+
+
+.skip_logo{
+    width: 55%;
+    margin-bottom: -3%;
+}
+
+.login_btn{
+    width: 80% !important;
+    margin-top: 5%;
+    border-style: none;
+    align-self: center;
+    border-radius: 7px;
+    padding: .7rem;
+    background-color: rgb(3 9 51);
+    color: white;
+}

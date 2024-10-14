@@ -1,0 +1,14 @@
+.popup-userName{
+ font-size: medium;   
+ margin-bottom: opx;
+ align-self: center;
+}
+
+
+.popup-avatar-area{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: red;
+    width: fit-content;
+}

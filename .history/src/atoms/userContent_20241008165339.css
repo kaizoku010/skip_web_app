@@ -1,0 +1,26 @@
+.ic_post_area{
+    display: flex;
+    gap:5%;
+    /* background-color: red; */
+}
+
+.icp_video{
+font-size: 16px;
+color: purple;
+}
+
+
+.icp_text{
+
+    margin: 0px;
+}
+
+
+
+.icp_doc{
+    color: blue;
+}
+
+.icp_image{
+    color: green;
+}

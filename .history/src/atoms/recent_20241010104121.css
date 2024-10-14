@@ -1,0 +1,17 @@
+.recents{
+ display: flex;
+ flex-direction: column;
+ background-color: red;
+ height: 100vh;   
+}
+
+.recents_title{
+
+}
+
+.recent_event_data{
+    display: flex;
+    pad
+    background-color: blue;
+    height: 40%;
+}

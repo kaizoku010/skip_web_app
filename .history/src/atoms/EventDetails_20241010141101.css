@@ -1,0 +1,131 @@
+.event-title-details{
+        font-size: 40px;
+        line-height: 1.0714285714;
+        font-weight: 600;
+        letter-spacing: -0.005em;
+        color: white;
+        text-align: left;
+        /* margin-left: 1rem; */
+        /* margin-top: 5rem; */
+        /* margin-bottom: 2rem; */
+        font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+
+    .close{
+
+        
+    }
+
+
+    .closeMe{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /* background-color: red; */
+        align-items: center;
+       margin-top: 5rem;
+       margin-left: 1rem;
+       margin-right: 1rem;
+              margin-bottom: 2rem;
+
+
+    }
+.event-host-details{
+    font-size: 19px;
+    line-height: 1.4211026316;
+    font-weight: 600;
+    letter-spacing: .012em;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+     color: white;
+}
+
+.title-copy {
+    font-size: 28px;
+    line-height: 1.1428571429;
+    font-weight: 600;
+    letter-spacing: .007em;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.event-detals-holder{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+}
+
+
+.event-content{
+    margin-top: 9%;
+    padding: 0px 20% 5% 20%;
+    display: flex;
+    gap: 10px;
+}
+
+.event-full-desc {
+    font-size: 17px;
+    line-height: 1.19048;
+    /* font-weight: 400; */
+    /* align-content: center; */
+    letter-spacing: .011em;
+    font-family: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin-top: 4px;
+    color: white;
+    text-align: justify;
+}
+
+.agendaSpeakersSessions{
+    color: white;
+    /* background-color: red; */
+    padding: 0.5%;
+    /* width: ; */
+    text-align: left;
+
+}
+
+.agenda-item{
+    width: 200px;
+    text-align-last: left;
+    text-align: left;
+    margin-top: 5px;
+}
+
+.event-actions{
+    margin-top: -20px;
+}
+
+.event-actions-btn{
+    border-radius: 50px;
+    border-color: transparent;
+    padding: 1rem;
+    width: 200px;
+    margin-right: 0.5rem;
+}
+
+.event-actions-btn:hover{
+    background-color: rgb(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+
+.container {
+    display: flex; /* Use flexbox to align items side by side */
+  }
+  
+  .scrollable-div {
+    width: 70%; /* Adjust width as needed */
+    height: 100vh; /* Full height of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    border-right: 1px solid #ccc; /* Optional border for visual separation */
+  }
+  
+  .fixed-div {
+    width: 30%; /* Adjust width as needed */
+    height: 100vh; /* Full height of the viewport */
+    padding: 10px;
+    background-color: #f8f8f8; /* Background color for visibility */
+    position: relative; /* Ensure this is relative for any absolute positioned children */
+  }
+  

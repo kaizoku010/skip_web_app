@@ -1,0 +1,25 @@
+.skipdash{
+    background-color: red;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.facebook_header{
+    width: 100%;
+    background-color: gray;
+    height: 3.5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.faebook_elements{
+    display: flex;
+    background-color: blue;
+    height: 500px;
+}
+
+.left-sidebar{
+    background-color: green;
+    height: 100%;
+    width: 100%;
+}

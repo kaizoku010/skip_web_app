@@ -1,0 +1,62 @@
+.register_page{
+    /* background-position: bottom; */
+    background-size: cover;
+    background-image: url("../assets/bree.png") !important;
+}
+
+
+.login-btn {
+    background-color: black;
+    padding: .5rem;
+    color: white !important;
+    border-radius: 8px;
+    width: 30% !important;
+    display: flex;
+    place-content: center;
+  }
+
+
+  .login-btn:hover{
+    background-color: white;
+    color: black;
+  }
+
+
+.bbc{
+    color: white !important;
+}
+
+.progress-bar{
+    margin-top: 2%;
+
+}
+
+.consent_text{
+    margin-top: 5%;
+    color: rgb(59, 59, 216);
+    font-weight: 600;
+    
+}
+
+@media only screen and (max-width: 600px) {
+
+    .create_mobile{
+        margin-top: 10%;
+    }
+
+    .flexMeForm {
+        display: flex;
+        gap: 5px !important;
+        text-align: center;
+    }
+
+    .bbc{
+        color: white !important;
+        align-items: center;
+        width: 100%;
+        align-self: center;
+     
+
+    }
+
+}

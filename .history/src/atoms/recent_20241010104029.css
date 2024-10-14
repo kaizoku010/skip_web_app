@@ -1,0 +1,10 @@
+.recents{
+ display: flex;
+ flex-direction: column;
+ background-color: red;
+ height: 100vh;   
+}
+
+.recents_title{
+    
+}

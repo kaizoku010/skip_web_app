@@ -1,0 +1,21 @@
+.user_current_event{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    /* background-color: red; */
+}
+
+.no_event_found{
+    background-color: rgb(226, 226, 226);
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 2rem;
+    font-size: larger;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}

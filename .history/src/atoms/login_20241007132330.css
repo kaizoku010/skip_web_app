@@ -1,0 +1,64 @@
+.login_email_input{
+    width: 80% !important;
+}
+
+.or{
+    margin-bottom: 0px;
+    padding: 5%;
+    color: rgb(182, 181, 181);
+    align-self: center;
+}
+
+.create_ac_link{
+    align-items: center !important;
+    color: rgb(98, 147, 238) !important;
+}
+
+
+
+.create_account_area{
+    cursor: pointer;
+justify-content: center;
+}
+
+
+.skip_logo{
+    width: 55%;
+    margin-bottom: -3%;
+}
+
+.login_btn{
+    width: 80% !important;
+    margin-top: 5%;
+    border-style: none;
+    align-self: center;
+    border-radius: 7px;
+    padding: .7rem;
+    background-color: rgb(3 9 51);
+    color: white;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .evt-form {
+        display: flex;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* height: 100vh; */
+        flex-direction: column !important;
+        justify-content: space-between;
+        background-color: white;
+        /* background-image: url(../assets/formbg.jpg); */
+    }
+
+    .form-left-side {
+        width: 100%;
+        height: 32vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .login_email_input {
+        width: 20rem !important;
+        color: black !important;
+    }
+}

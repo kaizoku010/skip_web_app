@@ -1,0 +1,48 @@
+.recents{
+ display: flex;
+ flex-direction: column;
+ /* background-color: red; */
+ height: 100vh;   
+ margin-top: 2rem;
+ padding: 2rem;
+
+}
+
+.recents_title{
+font-size: large;
+margin-bottom: 5%;
+justify-content: center;
+align-items: center;
+display: flex;
+flex-direction: column;
+}
+
+.recent_event_data{
+    display: flex;
+    background-color: blue;
+    height: 100%;
+    
+}
+
+.recent_img{
+    width: 50%;
+    height: 100%;
+}
+
+.our_recent_desc{
+    font-size: 1rem;
+    width: 30%;
+    margin-bottom: 0px;
+}
+
+.recent_text_holder{
+background-color: aqua;
+align-content: center;
+
+}
+
+.rth_desc{
+width: 80%;
+font-size: 1rem;
+
+}

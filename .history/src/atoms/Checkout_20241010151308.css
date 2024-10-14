@@ -1,0 +1,76 @@
+/* General container styles */
+.checkout-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form styles */
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Form section styles */
+  .form-section {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background: #fff;
+  }
+  
+  .form-section h2 {
+    margin-bottom: 15px;
+  }
+  
+  /* Label and input styles */
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  label input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Button styles */
+  .checkout-button {
+    background-color: #030932;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .checkout-button:hover {
+    background-color: #45a049;
+  }
+  
+
+  .chckout-title{
+    font-size: 1.5rem;
+
+  }
+
+
+  .chckout-title-payment{
+    font-size: 1rem;
+  }
+  
+
+  .pay-lable{
+    font-size: small !important;
+  }
+
+  .

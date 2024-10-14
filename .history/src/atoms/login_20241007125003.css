@@ -1,0 +1,29 @@
+.login_email_input{
+    width: 80% !important;
+}
+
+.or{
+    margin-bottom: 0px;
+    padding: 5%;
+    color: rgb(182, 181, 181);
+    align-self: center;
+}
+
+.create_ac_link{
+    align-items: center !important;
+    color: rgb(98, 147, 238) !important;
+}
+
+
+.create_account_area{
+justify-content: center;
+}
+
+
+.skip_logo{
+    width: 40%;
+}
+
+.login_btn{
+    width: 80% !important;
+}

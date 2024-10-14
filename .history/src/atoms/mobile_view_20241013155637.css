@@ -1,0 +1,9 @@
+@media only screen and (max-width: 800px) {
+
+    .our_recent_desc {
+        font-size: 21px;
+        width: 100% !im;
+        margin-bottom: 0px;
+        font-weight: 300;
+    }
+}

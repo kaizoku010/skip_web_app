@@ -1,0 +1,16 @@
+.user_current_event{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: left;
+    background-color: red;
+}
+
+.no_event_found{
+    background-color: gray;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

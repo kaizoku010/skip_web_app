@@ -1,0 +1,10 @@
+.login_email_input{
+    width: 19rem !important;
+}
+
+.or{
+    margin-bottom: 0px;
+    padding: 5%;
+    color: rgb(201, 198, 198);
+    align-self: center;
+}

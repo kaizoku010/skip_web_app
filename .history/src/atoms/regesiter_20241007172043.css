@@ -1,0 +1,14 @@
+.register_page{
+    /* background-position: bottom; */
+    background-size: cover;
+    background-image: url("../assets/eyes.png") !important;
+}
+
+
+.bbc{
+    color: black !important;
+}
+
+.consent_text{
+    margin-top: 12;
+}

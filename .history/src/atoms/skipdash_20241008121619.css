@@ -1,0 +1,12 @@
+.skipdash{
+    background-color: red;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.facebook_header{
+    width: 100%;
+    background-color: gray;
+    height: 10rem;
+}

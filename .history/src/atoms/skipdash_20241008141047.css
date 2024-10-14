@@ -1,0 +1,278 @@
+/* Global styling */
+.facebook-dashboard {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column; /* Make sure the header and layout are in a column */
+}
+
+/* Header */
+.header2 {
+    width: 100%;
+    height: 4rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 0 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-left,
+.header-center,
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-left .logo {
+    width: 50px;
+    margin-right: 1rem;
+}
+
+.header-center {
+    flex: 1;
+    justify-content: center;
+}
+
+.header-center input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #f0f2f5;
+}
+
+.header-right img {
+    width: 40px;
+    margin-right: 1rem;
+}
+
+/* Main Layout */
+.main-layout {
+    display: flex;
+    flex: 1; /* Allow main layout to grow and take available space */
+}
+
+/* Sidebars */
+.left-sidebar,
+.right-sidebar {
+    width: 21%;
+    padding: 1rem;
+    background-color: white;
+    overflow-y: auto;
+}
+
+.left-sidebar {
+    border-right: 1px solid #ddd;
+}
+
+.right-sidebar {
+    border-left: 1px solid #ddd;
+}
+
+.left-sidebar ul,
+.right-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.left-sidebar li,
+.right-sidebar li {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.left-sidebar li:hover,
+.right-sidebar li:hover {
+    background-color: #f0f2f5;
+    border-radius: 8px;
+}
+
+.left-sidebar li img,
+.right-sidebar li img {
+    width: 36px;
+    height: 36px;
+    margin-right: 1rem;
+    border-radius: 50%;
+}
+
+.main-content {
+    flex: 1;
+    padding: 1rem 9rem;
+    overflow-y: auto;
+}
+
+/* Story Section */
+.stories {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.story {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.story:hover {
+    transform: scale(1.05);
+}
+
+.story img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+
+.post_user_image{
+    width: 5% !important;
+    height: 5% !important;
+    border-radius: 50%;
+    align-self: center;
+    margin-bottom: 0rem !important;
+}
+
+
+
+.story span {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Post Section */
+.post {
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.post img {
+    width: 100%;
+    /* height: 500px; */
+    align-self: center;
+    /* border-radius: 12px; */
+    margin-bottom: 1rem;
+}
+
+
+/* .post-image{
+    width: 200px;
+} */
+
+
+.search_input{
+    border-radius: 50px;
+    padding: 5%;
+    width: 90%;
+    height: 2.5em;
+    background-color: #c7c7c7;
+
+}
+
+
+.post_details{
+    display: flex;
+    /* background-color: red; */
+}
+
+.comment-section{
+    /* background-color: red; */
+    display: flex;
+    padding: 1%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cs-text{
+font-weight: 600;
+margin-bottom: 0px;
+cursor: pointer;
+}
+
+.cs-text:hover{
+    color: gray;
+}
+
+.post_details_text{
+    align-self: center;
+    display: flex;
+    text-align: left;
+    margin-bottom: 2%;
+    margin-left: 1%;
+    flex-direction: column;
+}
+
+.post_username {
+    font-size: medium;
+    font-weight: 700;
+    margin-bottom: 0px !important;
+}
+
+.post_desc{
+margin: 0px;
+}
+
+.user_name{
+
+}
+
+.post_date {
+    font-size: small;
+}
+
+
+.make-post-details{
+display: flex;
+align-items: center;
+margin-bottom: 2%;
+gap: 2%;
+}
+
+
+.make-post-input{
+    border-radius: 20px;
+    width: 100%;
+    background-color: #c7c7c7;
+    color: black;
+    height: 45%;
+}
+
+.make-post-actions{
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-around;
+}
+
+.make-post-actions > p{
+    font-weight: 600;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+.make-post-actions > p:hover{
+    color: gray;
+}

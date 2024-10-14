@@ -1,0 +1,33 @@
+.popup-userName{
+ font-size: medium;   
+ margin-bottom: 0px;
+ margin-left: .5rem;
+ font-size: small;
+ align-self: center;
+}
+
+
+.popup-avatar-area{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    align-content: center;
+    /* background-color: red; */
+    width: fit-content;
+}
+
+.create-post-actions{
+    display: flex;
+    gap:10px;
+    margin-bottom: .5rem;
+}
+
+.create-post-actions > Button{
+    border-radius: 50px;
+}
+
+.create-post-footer{
+    display: flex;
+    gap: rem;
+
+}
