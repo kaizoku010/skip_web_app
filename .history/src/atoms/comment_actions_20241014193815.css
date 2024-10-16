@@ -1,0 +1,31 @@
+.action-buttons{
+    display: flex;
+    /* background-color: red; */
+    width: 100% !important;
+    justify-content: space-between;
+}
+
+
+.comment-btn{
+    background-color: transparent;
+    border-style: none;
+
+    cursor: pointer;
+}
+
+.comment-btn:hover{
+    color: gray
+}
+
+.like_action{
+    /* background-color: black; */
+}
+
+.post-actions{
+    width: 100%;
+}
+
+
+.like-unlike{
+    
+}

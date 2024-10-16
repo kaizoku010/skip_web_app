@@ -1,0 +1,57 @@
+.action-buttons{
+    display: flex;
+    background-color: rgba(231, 230, 230, 0.684);
+    width: 100% !important;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 1%;
+}
+
+
+.comment-btn{
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer;
+    font-size: small;
+
+}
+
+.comment-btn:hover{
+    color: gray
+}
+
+.like_action{
+    /* background-color: black; */
+    font-size: small;
+
+}
+
+.post-actions{
+    width: 100%;
+}
+
+
+.like-unlike{
+    background-color: transparent;
+    border-style: none;
+    font-size: small;
+
+}
+
+.like-unlike:hover{
+    color:gray;
+}
+
+
+.comment-btm-actions{
+    margin-top: 1%;
+}
+
+.add-comment-btn{
+    font-size: .7rem !important;
+}
+
+
+.comment-style{
+    
+}

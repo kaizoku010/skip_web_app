@@ -1,0 +1,22 @@
+.action-buttons{
+    display: flex;
+    background-color: red;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+
+.comment-btn{
+    background-color: green;
+    border-style: none;
+
+    cursor: pointer;
+}
+
+.comment-btn:hover{
+    color: gray
+
+    
+    .like_action{
+        
+    }

@@ -1,0 +1,16 @@
+.action-buttons{
+    display: flex;
+    background-color: red;
+    justify-content: space-between;
+}
+
+
+.comment-btn{
+    background-color: transparent;
+    border-style: none;
+    cursor: pointer;
+}
+
+.comment-btn:hover{
+    color: gray
+}
