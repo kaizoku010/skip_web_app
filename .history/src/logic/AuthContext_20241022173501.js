@@ -289,7 +289,7 @@ const AuthProvider = ({ children }) => {
             return {
               ...attendee,
               requestId: matchingRequest.requestId,
-              status: matchingRequest.status, // Include the requestId here
+              status, // Include the requestId here
             };
           }
           return null; // Return null if no matching request found

@@ -13,43 +13,21 @@ function UserDetailsBar() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
-console.log("my Requests: ", myFriendRequests)
-
-  useEffect(() => {
-    // If the data is not yet available, return early
-    if (!all_attended || !sentChatRequests || !myFriendRequests) {
-      setLoading(true); // Keep loading state until data is available
-      return;
-    }
-  
-    // If all required data is available, proceed
+  // Fetch matching attendees when all_attended and sentChatRequests are available
+ // Fetch matching attendees when all_attended, sentChatRequests, and myFriendRequests are available
+useEffect(() => {
+  // Check if all required data is available before processing
+  if (all_attended?.length > 0 && sentChatRequests?.length > 0 && myFriendRequests?.length > 0) {
     const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
     setFoundUsers(matchingAttendees);
-    setLoading(false); // Data is available, stop loading
-  
-  }, [all_attended, sentChatRequests, myFriendRequests]);
-  
+    setLoading(false); // Only set loading to false after data is available
+  } else {
+    setLoading(true); // Keep loading until data is fully available
+  }
+}, [all_attended, sentChatRequests, myFriendRequests]);
 
-  useEffect(() => {
-    // console.log("all_attended", all_attended);
-    // console.log("sentChatRequests", sentChatRequests);
-    // console.log("myFriendRequests", myFriendRequests);
-  
-    if (!all_attended || !sentChatRequests || !myFriendRequests) {
-      setLoading(true); // Keep loading state until data is available
-      return;
-    }
-  
-    const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
-   //remove all accepted or declined  users
-    const filteredUsers = matchingAttendees.filter(request => request.status !== "accepted" && request.status !== "declined");
+  if (loading) return <p>Loading, please wait...</p>;
 
-   
-    setFoundUsers(filteredUsers);
-    setLoading(false);
-  
-  }, [all_attended, sentChatRequests, myFriendRequests]);
-  
   // Function to open the modal and show user details
   const showUserDetails = (user) => {
     setSelectedUser(user);
@@ -62,10 +40,12 @@ console.log("my Requests: ", myFriendRequests)
     setSelectedUser(null);
   };
 
-  
-  if (loading) return <p>Loading, please wait...</p>;
 
-
+  useEffect(() => {
+  console.log("all_attended", all_attended);
+  console.log("sentChatRequests", sentChatRequests);
+  console.log("myFriendRequests", myFriendRequests);
+}, [all_attended, sentChatRequests, myFriendRequests]);
   return (
     <div className="user_details_bar">
       <div className="current-user-section">

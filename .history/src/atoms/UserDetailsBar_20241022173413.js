@@ -31,9 +31,9 @@ console.log("my Requests: ", myFriendRequests)
   
 
   useEffect(() => {
-    // console.log("all_attended", all_attended);
-    // console.log("sentChatRequests", sentChatRequests);
-    // console.log("myFriendRequests", myFriendRequests);
+    console.log("all_attended", all_attended);
+    console.log("sentChatRequests", sentChatRequests);
+    console.log("myFriendRequests", myFriendRequests);
   
     if (!all_attended || !sentChatRequests || !myFriendRequests) {
       setLoading(true); // Keep loading state until data is available
@@ -41,11 +41,7 @@ console.log("my Requests: ", myFriendRequests)
     }
   
     const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
-   //remove all accepted or declined  users
-    const filteredUsers = matchingAttendees.filter(request => request.status !== "accepted" && request.status !== "declined");
-
-   
-    setFoundUsers(filteredUsers);
+    setFoundUsers(matchingAttendees);
     setLoading(false);
   
   }, [all_attended, sentChatRequests, myFriendRequests]);

@@ -288,8 +288,7 @@ const AuthProvider = ({ children }) => {
             // Return a new object with the attendee data plus the requestId from the chat request
             return {
               ...attendee,
-              requestId: matchingRequest.requestId,
-              status: matchingRequest.status, // Include the requestId here
+              requestId: matchingRequest.requestId, // Include the requestId here
             };
           }
           return null; // Return null if no matching request found

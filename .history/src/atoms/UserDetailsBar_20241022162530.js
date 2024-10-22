@@ -13,43 +13,17 @@ function UserDetailsBar() {
   const [selectedUser, setSelectedUser] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
 
-console.log("my Requests: ", myFriendRequests)
-
+  // Fetch matching attendees when all_attended and sentChatRequests are available
   useEffect(() => {
-    // If the data is not yet available, return early
-    if (!all_attended || !sentChatRequests || !myFriendRequests) {
-      setLoading(true); // Keep loading state until data is available
-      return;
+    if (all_attended && sentChatRequests) {
+      const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
+      setFoundUsers(matchingAttendees);
+      setLoading(false); // Only set loading to false after data is available
     }
-  
-    // If all required data is available, proceed
-    const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
-    setFoundUsers(matchingAttendees);
-    setLoading(false); // Data is available, stop loading
-  
-  }, [all_attended, sentChatRequests, myFriendRequests]);
-  
+  }, [all_attended, sentChatRequests]);
 
-  useEffect(() => {
-    // console.log("all_attended", all_attended);
-    // console.log("sentChatRequests", sentChatRequests);
-    // console.log("myFriendRequests", myFriendRequests);
-  
-    if (!all_attended || !sentChatRequests || !myFriendRequests) {
-      setLoading(true); // Keep loading state until data is available
-      return;
-    }
-  
-    const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
-   //remove all accepted or declined  users
-    const filteredUsers = matchingAttendees.filter(request => request.status !== "accepted" && request.status !== "declined");
+  if (loading) return <p>Loading, please wait...</p>;
 
-   
-    setFoundUsers(filteredUsers);
-    setLoading(false);
-  
-  }, [all_attended, sentChatRequests, myFriendRequests]);
-  
   // Function to open the modal and show user details
   const showUserDetails = (user) => {
     setSelectedUser(user);
@@ -61,9 +35,6 @@ console.log("my Requests: ", myFriendRequests)
     setModalVisible(false);
     setSelectedUser(null);
   };
-
-  
-  if (loading) return <p>Loading, please wait...</p>;
 
 
   return (

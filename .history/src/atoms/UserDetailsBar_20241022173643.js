@@ -41,7 +41,6 @@ console.log("my Requests: ", myFriendRequests)
     }
   
     const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
-   //remove all accepted or declined  users
     const filteredUsers = matchingAttendees.filter(request => request.status !== "accepted" && request.status !== "declined");
 
    
