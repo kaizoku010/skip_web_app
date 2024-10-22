@@ -1,0 +1,62 @@
+.udb-actions{
+    /* background-color: black; */
+    display: flex;
+    gap: 1%;
+    margin-top: 1.5%;
+}
+
+.udb-btn{
+/* border-radius: 50px; */
+font-size: smaller;
+
+}
+
+.udb-btn-decline{
+color: white;
+background-color: red;
+}
+
+
+.udb-btn-approve{
+background-color: green;
+color: white;
+}
+
+.ibra{
+    padding: 1%;
+    margin-top: 1%;
+
+}
+
+
+.ibra:hover{
+background-color: rgba(228, 228, 228, 0.589);
+cursor: pointer;
+border-radius: 10px;
+}
+
+
+.modal-content{
+    background-color: red;
+}
+
+.user-details-img{
+
+}
+
+
+.user-details-job{
+
+}
+
+.user-details-email{
+
+}
+
+.user-details-job{
+
+}
+
+.user-details-job{
+    
+}

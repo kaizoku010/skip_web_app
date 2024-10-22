@@ -1,0 +1,16 @@
+.chat-div{
+    margin-top: 10%;
+    text-align: left;
+}
+
+
+.chat-room-item{
+    background-color: red;
+    text-align: left;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.chat-room-item > p{
+    margin-bottom: 0px;
+}

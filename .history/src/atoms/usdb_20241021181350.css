@@ -1,0 +1,30 @@
+.udb-actions{
+    /* background-color: black; */
+    display: flex;
+    gap: 1%;
+    margin-top: 1.5%;
+}
+
+.udb-btn{
+/* border-radius: 50px; */
+font-size: smaller;
+
+}
+
+.udb-btn-decline{
+color: white;
+background-color: red;
+}
+
+
+.udb-btn-approve{
+background-color: green;
+color: white;
+}
+
+
+.ibra:hover{
+background-color: rgb(228, 228, 228);
+cursor: pointer;
+border-radius: 10px;
+}

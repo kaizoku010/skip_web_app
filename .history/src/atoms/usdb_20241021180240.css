@@ -1,0 +1,20 @@
+.udb-actions{
+    /* background-color: black; */
+    display: flex;
+    gap: 1%;
+}
+
+.udb-btn{
+border-radius: 50px;
+}
+
+.udb-btn-decline{
+color: white;
+background-color: red;
+}
+
+
+.udb-btn-approve{
+background-color: green;
+color: white;
+}
