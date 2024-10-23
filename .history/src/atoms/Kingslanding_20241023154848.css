@@ -152,13 +152,9 @@ font-weight: 400;
     }
 
     .host-here {
-        display: flex !important;
-        width: 100%;
-        padding: 1rem !important;
-        height: -moz-fit-content;
-        height: fit-content;
+        padding: 1rem;
     width: 100%;
-    margin-top: -13rem !important;
+    margin-top: -13rem;
     align-items: center;
     }
 
