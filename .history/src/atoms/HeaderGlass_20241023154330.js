@@ -37,10 +37,7 @@ function HeaderGlass() {
   return (
     <div className="header_">
       <div className="glass">
-        <div style={{backgroundColor:"red", color:"white"}}>
-          <p style={{marginBottom:"0px", padding:"1rem"}}>This app is under development and highly experiemental, we recommend using a wider screen to review. Thank you!
-          </p>
-          </div>
+        <div style={{backgroundColor:"red", color:"white"}}>This app is under development and highly experiemental, we recommend using a wider screen to review</div>
         <div className="host-here">
           <img className="header_ic" src={Logo} />
           <Link style={{ textDecoration: "none !important" }}>

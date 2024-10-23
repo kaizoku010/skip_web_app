@@ -38,7 +38,7 @@ function HeaderGlass() {
     <div className="header_">
       <div className="glass">
         <div style={{backgroundColor:"red", color:"white"}}>
-          <p style={{marginBottom:"0px", padding:"1rem"}}>This app is under development and highly experiemental, we recommend using a wider screen to review. Thank you!
+          <p style={{marginB}}>This app is under development and highly experiemental, we recommend using a wider screen to review
           </p>
           </div>
         <div className="host-here">
