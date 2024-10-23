@@ -210,14 +210,6 @@ margin-top: 10px;
         flex-direction: column;
         justify-content: left;
     }
-    .footer-text-area {
-        /* background-color: red; */
-        width: 100%;
-        margin-top: 2rem;
-        text-align: justify;
-        padding-left: 2.5rem !important;
-        padding-right: 2.5rem !important;
-    }
 }
 
 
