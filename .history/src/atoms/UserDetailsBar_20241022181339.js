@@ -44,7 +44,7 @@ function UserDetailsBar() {
     const filteredUsers = matchingAttendees.filter(request => request.status !== "accepted" && request.status !== "declined");
 
    
-    setFoundUsers(matchingAttendees);
+    setFoundUsers(filteredUsers);
     setLoading(false);
   
   }, [all_attended, sentChatRequests, myFriendRequests]);

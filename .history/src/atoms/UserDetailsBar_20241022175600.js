@@ -12,6 +12,9 @@ function UserDetailsBar() {
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
+
+console.log("my Requests: ", myFriendRequests)
+
   useEffect(() => {
     // If the data is not yet available, return early
     if (!all_attended || !sentChatRequests || !myFriendRequests) {
@@ -39,12 +42,10 @@ function UserDetailsBar() {
   
     const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
    //remove all accepted or declined
-
-  //  console.log("matching attendees: ", matchingAttendees)
     const filteredUsers = matchingAttendees.filter(request => request.status !== "accepted" && request.status !== "declined");
 
    
-    setFoundUsers(matchingAttendees);
+    setFoundUsers(filteredUsers);
     setLoading(false);
   
   }, [all_attended, sentChatRequests, myFriendRequests]);
@@ -62,7 +63,21 @@ function UserDetailsBar() {
   };
 
   
-  if (loading) return <p>Loading, please wait...</p>;
+  if (loading) return <div>
+       <div className="current-user-section">
+        <Avatar className="current-user-details" src={user.userImage} alt="Profile" size="large" />
+        <div className="cu-text">
+          <p className="cu-username no-type">{user.userName}</p>
+          <p className="cu_user_email no-type">{user.userEmail}</p>
+          <p className="cu_user_job no-type">{user.job}</p>
+        </div>
+      </div>
+      
+            <Divider orientation="left">Friend Requests</Divider>
+
+    <p>Loading, please wait...</p>
+    
+    </div>;
 
 
   return (

@@ -40,7 +40,7 @@ function UserDetailsBar() {
     const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
    //remove all accepted or declined
 
-  //  console.log("matching attendees: ", matchingAttendees)
+   console.log("matching attendees: ", matchingAttendees)
     const filteredUsers = matchingAttendees.filter(request => request.status !== "accepted" && request.status !== "declined");
 
    

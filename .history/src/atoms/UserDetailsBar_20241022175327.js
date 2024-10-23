@@ -12,58 +12,50 @@ function UserDetailsBar() {
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
-  useEffect(() => {
-    // If the data is not yet available, return early
-    if (!all_attended || !sentChatRequests || !myFriendRequests) {
-      setLoading(true); // Keep loading state until data is available
-      return;
-    }
   
-    // If all required data is available, proceed
-    const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
-    setFoundUsers(matchingAttendees);
-    setLoading(false); // Data is available, stop loading
-  
-  }, [all_attended, sentChatRequests, myFriendRequests]);
-  
+  // New loading state for each request
+  const [loadingRequests, setLoadingRequests] = useState({});
 
   useEffect(() => {
-    // console.log("all_attended", all_attended);
-    // console.log("sentChatRequests", sentChatRequests);
-    // console.log("myFriendRequests", myFriendRequests);
-  
     if (!all_attended || !sentChatRequests || !myFriendRequests) {
-      setLoading(true); // Keep loading state until data is available
+      setLoading(true);
       return;
     }
-  
-    const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
-   //remove all accepted or declined
 
-  //  console.log("matching attendees: ", matchingAttendees)
+    const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
     const filteredUsers = matchingAttendees.filter(request => request.status !== "accepted" && request.status !== "declined");
-
-   
-    setFoundUsers(matchingAttendees);
+    
+    setFoundUsers(filteredUsers);
     setLoading(false);
-  
   }, [all_attended, sentChatRequests, myFriendRequests]);
-  
-  // Function to open the modal and show user details
+
   const showUserDetails = (user) => {
     setSelectedUser(user);
     setModalVisible(true);
   };
 
-  // Function to close the modal
   const handleCancelModal = () => {
     setModalVisible(false);
     setSelectedUser(null);
   };
 
-  
-  if (loading) return <p>Loading, please wait...</p>;
+  const handleAcceptRequest = async (requestId) => {
+    // Set loading for the specific request
+    setLoadingRequests(prev => ({ ...prev, [requestId]: true }));
 
+    try {
+      await acceptRequest(requestId); // Assume this returns a promise
+      // Optionally, handle success here (like showing a message)
+    } catch (error) {
+      console.error("Failed to accept request:", error);
+      // Optionally, handle failure here (like showing an error message)
+    } finally {
+      // Reset the loading state for the specific request
+      setLoadingRequests(prev => ({ ...prev, [requestId]: false }));
+    }
+  };
+
+  if (loading) return <p>Loading, please wait...</p>;
 
   return (
     <div className="user_details_bar">
@@ -87,9 +79,7 @@ function UserDetailsBar() {
                 <div>
                   {foundUsers && foundUsers.length > 0 ? (
                     foundUsers.map((request) => (
-                      //                       <div key={request.id} className="current-user-section ibra" onClick={() => showUserDetails(request)}>
-
-                      <div key={request.id} className="current-user-section ibra">
+                      <div key={request.id} className="current-user-section ibra" onClick={() => showUserDetails(request)}>
                         <img className="current-user-details" src={request.userImage || profileImg} alt="Profile" />
                         <div className="cu-text">
                           <p className="cu-username no-type">{request.username}</p>
@@ -98,10 +88,19 @@ function UserDetailsBar() {
                             works at: {request.job}
                           </p>
                           <div className="udb-actions">
-                            <Button className="udb-btn" type="primary" onClick={() => acceptRequest(request.requestId)}>
+                            <Button 
+                              className="udb-btn" 
+                              type="primary" 
+                              onClick={() => handleAcceptRequest(request.requestId)} 
+                              loading={loadingRequests[request.requestId] || false} // Show spinner if loading
+                            >
                               Approve
                             </Button>
-                            <Button className="udb-btn udb-btn-decline" type="danger" onClick={() => declineRequest(request.requestId)}>
+                            <Button 
+                              className="udb-btn udb-btn-decline" 
+                              type="danger" 
+                              onClick={() => declineRequest(request.requestId)}
+                            >
                               Decline
                             </Button>
                           </div>
@@ -109,7 +108,7 @@ function UserDetailsBar() {
                       </div>
                     ))
                   ) : (
-                    <p>No sent chat requests.</p>
+                    <p>No pending friend requests.</p>
                   )}
                 </div>
               ),
@@ -119,7 +118,7 @@ function UserDetailsBar() {
         />
       </div>
 
-      <Chat/>
+      <Chat />
 
       {selectedUser && (
         <Modal title="User Details" open={modalVisible} onCancel={handleCancelModal} footer={null}>
@@ -135,7 +134,7 @@ function UserDetailsBar() {
               <p className="user-details-job">
                 <strong>Job:</strong> {selectedUser.job}
               </p>
-              <p className="user-details-job">
+              <p className="user-details-bio">
                 <strong>About Me:</strong> {selectedUser.bio || "no bio yet"}
               </p>
             </div>

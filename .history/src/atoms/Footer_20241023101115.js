@@ -14,25 +14,46 @@ import { SlBell } from "react-icons/sl";
 import Logo from "../assets/ll2.gif"
 
 const footerText = "In the process of internal desktop applications development, many different design specs and implementations would be involved, In the process of internal desktop applications development, many different design specs and implementations would be involved"
-const footerText2 = "In the process of internal desktop applications development, many different design specs and implementations would be involved, In the process of internal desktop applications development, many different design specs and implementations would be involved. In the process of internal desktop applications development, many different design specs and implementations would be involved, In the process of internal desktop applications development, many different design specs and implementations would be involved"
-
 
 function Footer() {
   return (
     <div className="footer">
       {/* <img src={IC} className='footer-ic'/> */}
 <div className="footer-text-area">
-<div>
-  <h5 style={{textAlign:"left", marginTop:"3rem"}}>About Moxie 5 Marketing</h5>
-   <p className="fl-text">{footerText}</p>
-  <p className="fl-text">{footerText2}</p>
-  <p className="fl-text">{footerText2}</p>
-
+  <p className="fl-text">{footerText}</p>
 </div>
- 
+<div className="footer_top">
 
-</div>
-
+   
+        <div className="ft_section">
+        <h4 className="ft_title">Useful Links</h4>
+        <div className="ft_ics_text">
+ <div className="ft_ic_text">
+<p className="ft_desc">About moxie5agency</p>
+          </div>
+          <div className="ft_ic_text">
+<p className="ft_desc">Careers</p>
+          </div>
+          <div className="ft_ic_text">
+<p className="ft_desc">Blog</p>
+          </div>
+       </div>
+        </div>
+        <div className="ft_section">
+        <h4 className="ft_title">Contact</h4>
+        <div className="ft_ics_text">
+ <div className="ft_ic_text">
+<p className="ft_desc">info@moxie5agency.com</p>
+          </div>
+          <div className="ft_ic_text">
+<p className="ft_desc">jobs@moxie5agency.com</p>
+          </div>
+          <div className="ft_ic_text">
+<p className="ft_desc">sales@skipug.app</p>
+          </div>
+       </div>
+        </div>
+      </div>
       <div className="footer_top">
       <div className="ft_section">
           <h4 className="ft_title">Find Us</h4>

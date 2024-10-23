@@ -1,5 +1,5 @@
 .footer{
-    height: fit-content;
+    height: 30rem;
     /* width: 100%; */
     /* background: linear-gradient(
         to left, rgba(2, 3, 52, 0.85),
@@ -129,7 +129,6 @@ margin-top: 10px;
 
 
 .skip_footer_about{
-    margin-top: 1.5rem;
     font-size: small;
     text-align: left;
 }

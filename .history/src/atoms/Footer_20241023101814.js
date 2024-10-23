@@ -23,7 +23,7 @@ function Footer() {
       {/* <img src={IC} className='footer-ic'/> */}
 <div className="footer-text-area">
 <div>
-  <h5 style={{textAlign:"left", marginTop:"3rem"}}>About Moxie 5 Marketing</h5>
+  <h5 style={{textAlign:"left"}}>More On Moxie 5</h5>
    <p className="fl-text">{footerText}</p>
   <p className="fl-text">{footerText2}</p>
   <p className="fl-text">{footerText2}</p>

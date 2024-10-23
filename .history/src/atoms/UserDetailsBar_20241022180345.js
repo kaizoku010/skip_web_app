@@ -12,6 +12,9 @@ function UserDetailsBar() {
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
+
+console.log("my Requests: ", myFriendRequests)
+
   useEffect(() => {
     // If the data is not yet available, return early
     if (!all_attended || !sentChatRequests || !myFriendRequests) {
@@ -39,9 +42,7 @@ function UserDetailsBar() {
   
     const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
    //remove all accepted or declined
-
-  //  console.log("matching attendees: ", matchingAttendees)
-    const filteredUsers = matchingAttendees.filter(request => request.status !== "accepted" && request.status !== "declined");
+    const filteredUsers = matchingAttendees.filter(request => request.status === "accepted" && request.status !== "declined");
 
    
     setFoundUsers(matchingAttendees);
