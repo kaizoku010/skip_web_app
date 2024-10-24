@@ -1,0 +1,65 @@
+.cc_section{
+ 
+    /* background-color: green; */
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;
+    justify-content: center; */
+    height: fit-content;
+    width: fit-content;
+    /* background-color: #f9f9f9; */
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    position: relative;
+    margin-left: 2rem;
+}
+  
+  /* Quote Card Styling */
+  .quote-card {
+    /* padding: 2rem; */
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .quote-text {
+    font-size: 1rem;
+    font-style: italic;
+    text-align: left;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  
+  /* Controls for Next and Prev Buttons */
+  .carousel-controls {
+    display: flex;
+    /* justify-content: space-between; */
+    width: 100%;
+    gap: 3%;
+    padding: 0 0rem;
+    position: absolute;
+    bottom: 10px; /* Positioned at the bottom of the card */
+  }
+  
+  .carousel-button {
+    background-color: rgba(2, 13, 12, 0.2);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+        color: #fafafa;
+    border: none;
+    width: 4rem;
+    /* padding: .4rem; */
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: .8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+  .carousel-button:hover {
+    /* background-color: #0056b3; */
+color: rgb(0, 0, 0);
+}
+  
