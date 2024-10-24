@@ -3,7 +3,7 @@ import "./recent.css";
 import { Typography, Text } from "antd";
 import EventImage from "../assets/cee2.jpg";
 import EventImage2 from "../assets/man.jpg";
-import EventImage3 from "../assets/cee.jpg";
+import EventImage3 from "../assets/cute.jpg";
 
 
 
