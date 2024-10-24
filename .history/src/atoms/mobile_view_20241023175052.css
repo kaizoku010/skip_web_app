@@ -48,11 +48,11 @@
 
   .recent_text_holder {
     display: flex;
-    width: 100% !important;
+    width: 70% !important;
     text-align: left;
     align-self: center;
     flex-direction: column;
-}
+  }
 
   .readmore_btn {
     border-style: none;
@@ -65,13 +65,19 @@
   }
 
   .rth_desc {
-    width: 100% !important;
-    color: rgb(75, 75, 75);
-    margin-top: .5rem;
+    .rth_desc {
+      width: 100% !important;
+      color: rgb(75, 75, 75);
+      margin-top: 2rem;
+      align-self: center;
+      font-size: 1rem;
+      font-weight: 300;
+  }    color: rgb(75, 75, 75);
+    margin-top: 2rem;
     align-self: center;
-    font-size: 1rem;
+    font-size: 21px;
     font-weight: 300;
-}
+  }
 
   .main-layout {
     display: flex;

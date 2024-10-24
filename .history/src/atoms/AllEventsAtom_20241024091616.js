@@ -3,7 +3,6 @@ import "./AllEventsAtom.css";
 import EventHolder from './EventHolder';
 import {AuthContext} from '../logic/AuthContext'; // Import EventsContext
 import { useNavigate } from 'react-router-dom';
-import { Spin } from 'antd'; // Import Ant Design's Spin component
 
 function AllEventsAtom() {
   const { events, loading, error } = useContext(AuthContext); // Get events from context

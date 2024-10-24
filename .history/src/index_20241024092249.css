@@ -1,9 +1,5 @@
 /* btn blue color #007bff */
-@font-face {
-  font-family: 'Poppins';
-  src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-  font-display: swap;
-}
+
 
 strong{
   color: rgb(77, 76, 76) !important;
@@ -31,9 +27,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 17px;
   line-height: 1.47059;
-  font-smoothing: antialiased;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased
   font-weight: 400;
   letter-spacing: -0.022em;
   background-color: #050b0e !important;
@@ -45,13 +39,13 @@ a{
 }
 
 p{
-  font-family:  "Poppins" !important;
+  font-family:  Poppins !important;
   font-size: .9rem;
 }
 
 
 h1,h2,h3,h4,h5{
-  font-family: "Poppins" !important;
+  font-family: Poppins !important;
 }
 
 code {

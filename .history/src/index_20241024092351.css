@@ -45,13 +45,13 @@ a{
 }
 
 p{
-  font-family:  "Poppins" !important;
+  font-family:  Poppins !important;
   font-size: .9rem;
 }
 
 
 h1,h2,h3,h4,h5{
-  font-family: "Poppins" !important;
+  font-family: Poppins !important;
 }
 
 code {

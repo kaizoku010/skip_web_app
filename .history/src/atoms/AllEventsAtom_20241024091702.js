@@ -1,30 +1,26 @@
 import React, { useContext, useState } from 'react';
+import { Spin } from 'antd'; // Import Ant Design's Spin component
 import "./AllEventsAtom.css";
 import EventHolder from './EventHolder';
-import {AuthContext} from '../logic/AuthContext'; // Import EventsContext
+import { AuthContext } from '../logic/AuthContext'; 
 import { useNavigate } from 'react-router-dom';
-import { Spin } from 'antd'; // Import Ant Design's Spin component
 
 function AllEventsAtom() {
-  const { events, loading, error } = useContext(AuthContext); // Get events from context
+  const { events, loading, error } = useContext(AuthContext);
   const [currentPage, setCurrentPage] = useState(1);
-  const eventsPerPage = 9; // Display 9 events (3x3 grid)
+  const eventsPerPage = 9;
 
-
-  // console.log("events found:", events)
   const navigate = useNavigate();
 
   const handleEventClick = (id) => {
     navigate(`/event-details/${id}`);
   };
 
-  // Calculate pagination
   const indexOfLastEvent = currentPage * eventsPerPage;
   const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
   const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
   const totalPages = Math.ceil(events.length / eventsPerPage);
 
-  // Handlers for next and previous pages
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
@@ -37,27 +33,23 @@ function AllEventsAtom() {
     }
   };
 
-
-  
-
   return (
     <div className='all-Godly-people'>
       <h3 className='ev-titled'>Explore Our Events</h3>
 
-      {/* Show loading or error */}
+      {/* Show loading spinner or error */}
       {loading ? (
-    <div className="spin-container">
-    <Spin size="large" tip="Loading events..." /> {/* Ant Design Spin loader */}
-  </div>      ) : error ? (
-<div className='no-events'>
-<p>Oops! {error} </p>
-
-</div>
-      
+        <div className="spin-container">
+          <Spin size="large" tip="Loading events..." /> {/* Ant Design Spin loader */}
+        </div>
+      ) : error ? (
+        <div className='no-events'>
+          <p>Oops! {error} </p>
+        </div>
       ) : (
         <div className='holders'>
           <ul className='events-list'>
-            {currentEvents.map((event, index) => (
+            {currentEvents.map((event) => (
               <li key={event._id} className='event-item'>
                 <div className='new_holder' onClick={() => handleEventClick(event.eventId)}>
                   <EventHolder
