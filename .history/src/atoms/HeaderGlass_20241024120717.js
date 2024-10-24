@@ -27,7 +27,7 @@ function HeaderGlass() {
   );
 
   const openLink2 = () => {
-    window.open("/register", "_self");
+    window.open("/register");
   };
 
   const openLink = () => {

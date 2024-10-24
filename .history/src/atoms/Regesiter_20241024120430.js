@@ -28,9 +28,8 @@ function Regesiter() {
         {/* Form Side */}
         <div style={{display:"flex", flexDirection:"column"}}>
             <div className='create_mobile' style={{textAlign:"left", paddingLeft:"2rem"}}>
-        <Link to="/">
-        <p className='backhme'><span><ArrowLeftOutlined style={{marginRight: ".5rem",}} /></span>Back Home</p>
-        </Link>
+        <Link
+           <p className='backhme'><span><ArrowLeftOutlined style={{marginRight: ".5rem",}} /></span>Back Home</p>
            
             <h3>Create Account </h3>
             <p>Start by providing a few details about yourself and a profile image</p>

@@ -1,9 +1,9 @@
 import React from "react";
 import "./recent.css";
 import { Typography, Text } from "antd";
-import EventImage from "../assets/bree.jpg";
-import EventImage2 from "../assets/man.jpg";
-import EventImage3 from "../assets/cute.jpg";
+import EventImage from "../assets/bree.jg";
+import EventImage2 from "../assets/man.png";
+import EventImage3 from "../assets/cute.png";
 
 
 
