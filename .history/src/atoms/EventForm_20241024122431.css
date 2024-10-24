@@ -9,14 +9,11 @@
   padding-Top: 10%; */
   /* background-image: url("../assets/formbg.jpg"); */
 }
-.hideOnMobile{
-  font-size: small;
-}
 
 .Jq-area{
   /* background-color: red; */
   height: 100vh;
-  padding-top: 2rem;
+  padd
   display: flex;
   justify-content: space-between;
 }
