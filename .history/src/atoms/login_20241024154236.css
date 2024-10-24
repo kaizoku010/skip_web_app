@@ -66,10 +66,6 @@ justify-content: center;
         /* background-image: url(../assets/formbg.jpg); */
     }
 
-    .or{
-        display: none;
-    }
-
 
     .form-side-holder {
         align-self: auto !important;
