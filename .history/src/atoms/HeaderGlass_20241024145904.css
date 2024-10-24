@@ -2,6 +2,7 @@
     background-color: rgb(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     display: flex;
+    /* background-attachment: fixed; */
     flex-direction: column;
     background-position: center;
     background-image: url("../assets/cool.jpg");
@@ -162,6 +163,7 @@
         background-color: rgb(255, 255, 255, 0.2);
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
+      
         display: flex;
         flex-direction: column;
         background-position: center;

@@ -104,7 +104,7 @@ code {
   background-image: url("./assets/bright.png") !important;
   background-size: cover !important;
   height: 35rem;
-  background-attachment: scroll !important;
+  background-attachment:scroll !important;
   justify-content: space-between;
 }
 
