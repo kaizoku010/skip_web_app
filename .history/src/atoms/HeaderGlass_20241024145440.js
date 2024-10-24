@@ -37,7 +37,7 @@ function HeaderGlass() {
   return (
     <div className="header_">
       <div className="glass">
-        <div style={{backgroundColor:"#ff0000b5", color:"white"}}>
+        <div style={{backgroundColor:"#", color:"white"}}>
           <p style={{marginBottom:"0px", padding:"1rem"}}>This app is under development and highly experiemental, we recommend using a wider screen to review. Thank you!
           </p>
           </div>
