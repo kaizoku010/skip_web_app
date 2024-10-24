@@ -75,7 +75,7 @@
 .readMore_section {
   /* background-color: red; */
   height: 30%;
-  margin-top: 1rem !important;
+  margin-top: 1rem;
 }
 
   .scrollable-div {
@@ -107,7 +107,7 @@
   }
 
   .inner-form {
-    height: 100% !important; /* Ensure inner form takes full width */
+    width: 100%; /* Ensure inner form takes full width */
   }
 
   .backhme2{

@@ -66,18 +66,9 @@ justify-content: center;
         /* background-image: url(../assets/formbg.jpg); */
     }
 
-
-    .form-side-holder {
-        align-self: auto !important;
-        width: 100%;
-        text-align: left;
-        display: flex;
-        flex-direction: column;
-    }
-
     .form-left-side {
         width: 100%;
-        height: 47vh !important;
+        height: 47vh;
         padding: 27px;
         background-size: cover;
         background-repeat: no-repeat;

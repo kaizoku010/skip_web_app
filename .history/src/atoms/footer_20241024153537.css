@@ -179,14 +179,6 @@ margin-top: 10px;
         text-align: left;
     }
     
-    .Jq-area {
-        /* background-color: red; */
-        height: fit-content !important;
-        padding-top: 2rem;
-        display: flex;
-        justify-content: space-between;
-    }
-
 
     .footer {
         height: fit-content;
@@ -199,7 +191,7 @@ margin-top: 10px;
         display: flex;
         /* --bs-gradient: ; */
         flex-direction: column;
-        margin-top: 7rem !important;
+        margin-top: 7rem;
         color: rgb(75, 75, 75);
         justify-content: center;
         align-items: center;

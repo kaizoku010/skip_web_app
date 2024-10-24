@@ -68,8 +68,9 @@ justify-content: center;
 
 
     .form-side-holder {
-        align-self: auto !important;
+        align-self: auto;
         width: 100%;
+        /* height: 80%; */
         text-align: left;
         display: flex;
         flex-direction: column;

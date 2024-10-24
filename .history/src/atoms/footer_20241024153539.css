@@ -179,14 +179,6 @@ margin-top: 10px;
         text-align: left;
     }
     
-    .Jq-area {
-        /* background-color: red; */
-        height: fit-content !important;
-        padding-top: 2rem;
-        display: flex;
-        justify-content: space-between;
-    }
-
 
     .footer {
         height: fit-content;

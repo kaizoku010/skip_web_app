@@ -181,7 +181,7 @@ margin-top: 10px;
     
     .Jq-area {
         /* background-color: red; */
-        height: fit-content !important;
+        height: 100vh;
         padding-top: 2rem;
         display: flex;
         justify-content: space-between;
