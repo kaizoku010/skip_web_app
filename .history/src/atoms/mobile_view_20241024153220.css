@@ -64,13 +64,6 @@
   position: relative;
 }
 
-.ed-evnt-desc {
-  margin-bottom: 0px;
-  /* width: 70%; */
-  font-size: 1.1rem !important;
-  font-weight: 300;
-}
-
   .scrollable-div {
     width: 100% !important;
     height: 100% !important;
