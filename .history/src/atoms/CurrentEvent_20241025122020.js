@@ -22,7 +22,7 @@ function CurrentEvent({ user, events }) {
   const handleSendChatRequest = async () => {
     const senderId = user?.userEmail;
     const receiverId = selectedAttendee?.userEmail;
-
+  
     // Prevent sending to self
     if (receiverId === senderId) {
       notification.error({
@@ -31,18 +31,18 @@ function CurrentEvent({ user, events }) {
       });
       return;
     }
-
+  
     try {
       // Send the chat request using the context's function
       const result = await sendChatRequest(receiverId, senderId);
-
+  
       // Handle the result of the request
       if (result.success) {
         notification.success({
           message: "Chat Request Sent",
           description: "Your chat request has been sent successfully.",
         });
-      }
+      } 
       // else {
       //   notification.error({
       //     message: "Request Failed",
@@ -55,9 +55,11 @@ function CurrentEvent({ user, events }) {
         description: "There was an error sending the chat request.",
       });
     }
-
+  
     setIsModalVisible(false); // Close the modal
   };
+  
+  
 
   const userEvent = events.find((event) =>
     event.attendees.some((attendee) => attendee.userEmail === user.userEmail)
@@ -86,18 +88,24 @@ function CurrentEvent({ user, events }) {
     console.error("Failed to parse agenda:", error);
   }
 
-  // look up an attendee by email...we shall use this same code for the scanning a QR
+
+
+  // look up an attendee by email...we shall use this same code for the scanning a QR 
   const findAttendeeByEmail = (userEvent, email) => {
     if (!userEvent || !userEvent.attendees) {
-      return null;
-    }
-
-    const attendee = userEvent.attendees.find((att) => att.userEmail === email);
-    return attendee || null;
+      return null; 
+  
+  }
+  
+    const attendee = userEvent.attendees.find(att => att.userEmail === email);
+    return attendee || null; 
   };
 
   //returned object
   const result = findAttendeeByEmail(userEvent, user.userEmail);
+
+
+
 
   return (
     <div className="user_current_event2">
@@ -202,8 +210,10 @@ function CurrentEvent({ user, events }) {
           <h4 className="event_pass">YOUR EVENT PASS</h4>
           <div className="qr-code-div"></div>
           <Space direction="vertical" align="center">
-            <QRCode value={`${result.attendeeId},${result.username}`} />
-          </Space>
+  <QRCode
+    value={`${result.attendeeId},${result.username}`}
+  />
+</Space>
         </div>
       </div>
 
