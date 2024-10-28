@@ -254,8 +254,6 @@
   .user_current_event2 {
     height: 100% !important;
     display: flex;
-    padding: 1rem;
-    margin-bottom: 3rem;
     background-color: white;
     flex-direction: column;
     text-align: left;
