@@ -115,17 +115,6 @@
     height: fit-content !important;
   }
 
-  .skip_logo {
-    width: 55%;
-    display: none;
-    margin-bottom: -3%;
-}
-
-.evt-form {
-  height: 100% !important;
-  display: flex;
-}
-
   .backhme2{
     display: none;
   }
