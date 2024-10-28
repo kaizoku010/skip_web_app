@@ -21,8 +21,8 @@ function HeaderGlass() {
 
   const content = (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <a href="https://moxie5agency.com/about-us/" target="_blank" rel="noopener noreferrer">About Moxie 5 Marketing Agency</a>
-      <a href="https://moxie5agency.com/introducing-skp-your-gateway-to-meaningful-connections-2/" target="_blank" rel="noopener noreferrer">Introducing Sk!p</a>
+      <a>About Moxie 5 Marketing Agency</a>
+      <a>Introducing Sk!p</a>
     </div>
   );
 
