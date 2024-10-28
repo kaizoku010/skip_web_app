@@ -21,7 +21,7 @@ function Mobilehome() {
     },
     {
       title: "Account",
-      onClick: () => navigate("/userdetails"), // Navigate to Current Event
+      onClick: () => navigate("/content"), // Navigate to Current Event
       icon: <ProfileOutlined />,
       activeIcon: <BellFilled color="#fff" />
     },

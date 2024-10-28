@@ -281,10 +281,8 @@
   }
 
   .user_details_bar {
-    background-color: white;
+    /* display: none !important; */
     align-items: center;
-    height: 100vh;
-    padding: 1rem;
     align-items: start;
   }
 

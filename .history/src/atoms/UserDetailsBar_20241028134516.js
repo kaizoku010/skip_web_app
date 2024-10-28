@@ -73,7 +73,7 @@ function UserDetailsBar() {
         <div className="cu-text">
           <p className="cu-username no-type">{user?.userName}</p>
           <p className="cu_user_email no-type">{user?.userEmail}</p>
-          <p className="cu_user_job no-type">{user?.job}</p>
+          <p className="cu_user_job no-type">{user.job}</p>
         </div>
       </div>
 

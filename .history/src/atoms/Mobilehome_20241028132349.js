@@ -1,6 +1,6 @@
 import React from 'react';
 import { BottomNavigation } from "reactjs-bottom-navigation";
-import { BellFilled, AppstoreFilled, ProfileOutlined, HomeOutlined } from "@ant-design/icons";
+import { BellFilled, AppstoreFilled, WechatOutlined, HomeOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 function Mobilehome() {
@@ -21,7 +21,7 @@ function Mobilehome() {
     },
     {
       title: "Account",
-      onClick: () => navigate("/userdetails"), // Navigate to Current Event
+      onClick: () => navigate("/currentevent"), // Navigate to Current Event
       icon: <ProfileOutlined />,
       activeIcon: <BellFilled color="#fff" />
     },
