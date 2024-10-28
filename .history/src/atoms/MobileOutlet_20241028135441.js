@@ -11,7 +11,9 @@ function Layout() {
 
   return (
     <div>
-            {showBottomNav && <Header />} {/* Render bottom navigation only on /dash */}
+            {showBottomNav && <Mobilehome />} {/* Render bottom navigation only on /dash */}
+
+      <Header /> {/* Your header */}
       <div className="content">
         <Outlet /> {/* This renders the child routes */}
       </div>

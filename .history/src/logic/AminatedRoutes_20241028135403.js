@@ -15,7 +15,7 @@ import UserContent  from "../atoms/UserContent";
 
 function AminatedRoutes() {
   const location = useLocation();
-   const {user, events} = useContext(AuthContext); // Get the user from AuthContext
+   const {user, events, logout} = useContext(AuthContext); // Get the user from AuthContext
 
   return (
     <div>
