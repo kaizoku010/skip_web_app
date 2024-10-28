@@ -7,7 +7,6 @@ import "./userContent.css";
 import CreatePostDialog from "./CreatePostDialog"; // Import CreatePostDialog
 import { AuthContext } from "../logic/AuthContext";
 import CommentActions from "./CommentActions";
-import "./mobile_view.css"
 import { VideoCameraFilled, DeleteFilled } from "@ant-design/icons";
 
 function UserContent({ user, events }) {
@@ -141,17 +140,16 @@ function UserContent({ user, events }) {
     )}
   </div>    
 
-  <div className="bottom-space">
+<div className="bottom-padding">
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
       You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the tag.
+      The build step will place the bundled scripts into the <body> tag.
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     </div>
-
 
 
       <CreatePostDialog

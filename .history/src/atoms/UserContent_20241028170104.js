@@ -141,7 +141,7 @@ function UserContent({ user, events }) {
     )}
   </div>    
 
-  <div className="bottom-space">
+<div className="bottom-padding">
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -151,7 +151,6 @@ function UserContent({ user, events }) {
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     </div>
-
 
 
       <CreatePostDialog

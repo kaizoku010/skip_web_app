@@ -34,9 +34,6 @@ function DashHeader({ user }) {
     };
   }, [arrow]);
 
-
-  const ImageURl = user?.userImage;
-
   const content_ = (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <button onClick={logout} className="logout-btn">
@@ -91,6 +88,10 @@ function DashHeader({ user }) {
   const logout_ = (newOpen) => {
     setOpen4(newOpen);
   };
+
+
+console.log("user object")
+
   return (
     <div className="header2">
       <div className="header-left">
@@ -183,9 +184,7 @@ function DashHeader({ user }) {
           open={open4}
           onOpenChange={logout_}
         >
-
-{/* <img src={ImageURl} alt="profile image" /> */}
-<Avatar className="logged-in-user" src={user?.userImage} size="large" alt="User Image" />
+          <Avatar className="logged-in-user" src={user?.userImage} size="large" alt="User" />
         </Popover>
       </div>
     </div>

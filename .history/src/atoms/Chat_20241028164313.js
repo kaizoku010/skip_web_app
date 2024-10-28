@@ -13,7 +13,7 @@ const Chat = () => {
 
   // Function to get user details from attendee list based on participant's email
   const getAttendeeInfo = (email) => {
-    return all_attended.find((attendee) => attendee.userEmail === email);
+    return all_attended.find((attendee) => attendee.userEmail === user.email);
   };
 
   return (
@@ -50,9 +50,9 @@ const Chat = () => {
                             <p className="userName">
                               {participantInfo.username || "Unknown User"}
                             </p>
-                            {/* <p className="msg-excpt">
+                            <p className="msg-excpt">
                               Contact: {participantInfo.contact}
-                            </p> */}
+                            </p>
                           </div>
                         </div>
                       );

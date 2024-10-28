@@ -141,7 +141,7 @@ function UserContent({ user, events }) {
     )}
   </div>    
 
-  <div className="bottom-space">
+  <div className="bottom-sapce">
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 

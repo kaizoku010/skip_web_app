@@ -36,6 +36,7 @@ function DashHeader({ user }) {
 
 
   const ImageURl = user?.userImage;
+  console.log("image url: ", ImageURl)
 
   const content_ = (
     <div style={{ display: "flex", flexDirection: "column" }}>
@@ -185,7 +186,7 @@ function DashHeader({ user }) {
         >
 
 {/* <img src={ImageURl} alt="profile image" /> */}
-<Avatar className="logged-in-user" src={user?.userImage} size="large" alt="User Image" />
+<Avatar className="logged-in-user" src={user?.userImage} size="large" alt="User" />
         </Popover>
       </div>
     </div>

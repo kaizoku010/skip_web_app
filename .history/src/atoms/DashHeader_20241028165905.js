@@ -36,6 +36,7 @@ function DashHeader({ user }) {
 
 
   const ImageURl = user?.userImage;
+  console.log("image url: ", ImageURl)
 
   const content_ = (
     <div style={{ display: "flex", flexDirection: "column" }}>

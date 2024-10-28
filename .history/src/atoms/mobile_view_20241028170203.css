@@ -432,9 +432,9 @@
     width: 91%;
 }
 
-.bottom-space{
+.bottom-padding{
   background-color: red;
-  display: flex !important;
+  display: block ;
   height: 25rem !important;
   width: 100%;
 }

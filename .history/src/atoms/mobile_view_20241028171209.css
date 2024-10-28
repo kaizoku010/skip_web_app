@@ -39,6 +39,8 @@
   .user_content{
     background-color: whitesmoke;
     padding: 0rem;
+    min-height: 100vh; /* Makes sure content fills viewport height */
+
   }
 
   .all-Godly-people {

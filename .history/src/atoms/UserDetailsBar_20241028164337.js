@@ -63,6 +63,7 @@ function UserDetailsBar() {
 
   
   // if (loading) return <p style={{color:"white"}}>Loading, please wait...</p>;
+
 //  console.log("found user: ", foundUsers)
 
   return (
