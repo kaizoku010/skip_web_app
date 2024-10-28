@@ -24,20 +24,6 @@ strong{
   border-top: 1px solid #ebebeb;
 }
 
-
-.bottom-nav-item {
-  flex-grow: 1;
-  flex-basis: 0;
-  border-radius: 7px !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
 .readmore_btn {
   border-style: none;
   width: 15%;
