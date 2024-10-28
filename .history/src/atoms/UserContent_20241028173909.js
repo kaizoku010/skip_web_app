@@ -140,9 +140,7 @@ function UserContent({ user, events }) {
       ))
     )}
 
-<div className="bottom-nav-space">
-  
-    </div>
+
   </div>    
 
 

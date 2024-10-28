@@ -450,7 +450,7 @@
 }
 
 .posts-container {
-  padding-bottom: 0rem; /* Add enough padding to account for the height of the bottom nav */
+  padding-bottom: 5000rem; /* Add enough padding to account for the height of the bottom nav */
 }
 
 .bottom-nav-space {
@@ -475,7 +475,7 @@
   background-color: #f0f2f5;
   display: flex;
   flex-direction: column;
-  height: fit-content;
+  height: fir;
   overflow: hidden;
 }
 

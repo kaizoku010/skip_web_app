@@ -140,14 +140,8 @@ function UserContent({ user, events }) {
       ))
     )}
 
-<div className="bottom-nav-space">
-  
-    </div>
-  </div>    
 
-
-
-
+  </div> 
       <CreatePostDialog
         isModalVisible={isModalVisible}
         handleCancel={handleCancel}

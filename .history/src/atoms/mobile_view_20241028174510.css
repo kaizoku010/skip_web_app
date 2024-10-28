@@ -450,11 +450,11 @@
 }
 
 .posts-container {
-  padding-bottom: 0rem; /* Add enough padding to account for the height of the bottom nav */
+  padding-bottom: 5000rem; /* Add enough padding to account for the height of the bottom nav */
 }
 
 .bottom-nav-space {
-  height: 5rem !important; /* Same as padding to push the content up above the bottom nav */
+  height: 500px !important; /* Same as padding to push the content up above the bottom nav */
   width: 100%;
   background-color: transparent; /* Or any color to visually indicate the space */
 }
@@ -464,20 +464,8 @@
 }
 
 
-.right-sidebar{
-  display: none;
-}
+righ
 
-.facebook-dashboard {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  overflow: hidden;
-}
 
 
 .post_desc {

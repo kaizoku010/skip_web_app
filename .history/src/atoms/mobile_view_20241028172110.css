@@ -423,11 +423,12 @@
     top: 0;
     z-index: 1000;
   }
-  .user_content{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the container takes up the full viewport height */
-  } 
+
+  .posts-container {
+    flex-grow: 1;
+    overflow-y: auto; /* This allows scrolling when the posts exceed the available height */
+    margin-bottom: 2rem; /* Add margin to prevent overlap with the bottom-space */
+  }
 
 
   .ant-modal-content {
@@ -449,34 +450,11 @@
     width: 91%;
 }
 
-.posts-container {
-  padding-bottom: 0rem; /* Add enough padding to account for the height of the bottom nav */
-}
-
-.bottom-nav-space {
-  height: 5rem !important; /* Same as padding to push the content up above the bottom nav */
+.bottom-space{
+  background-color: red;
+  display: flex !important;
+  height: 25rem !important;
   width: 100%;
-  background-color: transparent; /* Or any color to visually indicate the space */
-}
-
-.left-sidebar{
-  display: none;
-}
-
-
-.right-sidebar{
-  display: none;
-}
-
-.facebook-dashboard {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  overflow: hidden;
 }
 
 
