@@ -37,8 +37,8 @@
   }
 
   .user_content{
-    background-color: whitesmoke;
-    padding: 1rem;
+    background-color: white;
+    padding-bottom: 5rem;
   }
 
   .all-Godly-people {
@@ -92,17 +92,6 @@
     padding: 2rem 2rem 2rem 1rem;
     
     border-right: 1px solid #ccc;
-}
-
-
-.mdx-tabs{
-  margin-top: 1rem;
-  padding: 1rem;
-}
-
-
-.active-event-desktop{
-  display: none;
 }
 
   .event-details-container {
@@ -432,21 +421,13 @@
     width: 91%;
 }
 
-.bottom-padding{
-  background-color: transparent;
-  display: block;
-  height: 5rem;
-  width: 100%;
-}
-
-
 .post_desc {
   margin: 0px;
   padding-bottom: .5rem;
 }
 
 .post {
-  background-color: #ffffff;
+  background-color: #eeeded85;
   padding: 1rem;
   display: flex;
   flex-direction: column;

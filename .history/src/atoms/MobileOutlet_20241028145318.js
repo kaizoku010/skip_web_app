@@ -1,7 +1,7 @@
 // Layout.js
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from './DashHeader'; // Your header component
+import Header from './Header'; // Your header component
 import Mobilehome from './Mobilehome'; // Your bottom navigation component
 
 function Layout() {
@@ -14,9 +14,9 @@ function Layout() {
 
   return (
     <div>
-            {showBottomNav && <Header />} {/* Render bottom navigation only on specified routes */}
+            {showBottomNav && <Mobilehome />} {/* Render bottom navigation only on specified routes */}
 
-      {/* <Header /> Render Header for all routes */}
+      <Header /> {/* Render Header for all routes */}
       <div className="content">
         <Outlet /> {/* Render the child routes */}
       </div>

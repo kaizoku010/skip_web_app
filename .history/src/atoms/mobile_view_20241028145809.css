@@ -94,17 +94,6 @@
     border-right: 1px solid #ccc;
 }
 
-
-.mdx-tabs{
-  margin-top: 1rem;
-  padding: 1rem;
-}
-
-
-.active-event-desktop{
-  display: none;
-}
-
   .event-details-container {
     display: flex;
     flex-direction: column;
@@ -433,9 +422,9 @@
 }
 
 .bottom-padding{
-  background-color: transparent;
+  background-color: red;
   display: block;
-  height: 5rem;
+  height: 1rem;
   width: 100%;
 }
 

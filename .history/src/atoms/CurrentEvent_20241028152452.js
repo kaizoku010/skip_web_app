@@ -101,7 +101,7 @@ function CurrentEvent({ user, events }) {
 
   return (
     <div className="user_current_event2">
-      <p className="active-event-desktop">Active Event</p>
+      <p className="">Active Event</p>
       <div className="event_found">
         <img className="event_image" src={userEvent?.eventImage} />
         <h4 className="active_event_title">{userEvent?.eventName}</h4>

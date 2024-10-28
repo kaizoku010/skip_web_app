@@ -1,7 +1,7 @@
 // Layout.js
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from './DashHeader'; // Your header component
+import Header from './Header'; // Your header component
 import Mobilehome from './Mobilehome'; // Your bottom navigation component
 
 function Layout() {

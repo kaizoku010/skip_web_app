@@ -14,9 +14,7 @@ function Layout() {
 
   return (
     <div>
-            {showBottomNav && <Header />} {/* Render bottom navigation only on specified routes */}
-
-      {/* <Header /> Render Header for all routes */}
+      <Header /> {/* Render Header for all routes */}
       <div className="content">
         <Outlet /> {/* Render the child routes */}
       </div>

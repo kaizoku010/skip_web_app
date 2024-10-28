@@ -138,7 +138,7 @@ function UserContent({ user, events }) {
     )}
   </div>    
 
-<div className="bottom-padding"></div>
+<div
 
 
       <CreatePostDialog

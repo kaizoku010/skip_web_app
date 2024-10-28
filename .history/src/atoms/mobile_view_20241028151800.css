@@ -100,11 +100,6 @@
   padding: 1rem;
 }
 
-
-.active-event-desktop{
-  display: none;
-}
-
   .event-details-container {
     display: flex;
     flex-direction: column;

@@ -11,7 +11,6 @@ import PrivateRoute from "./PrivateRoutes";
 import UserDetailsBar from "../atoms/UserDetailsBar";
 import CurrentEvent from "../atoms/CurrentEvent";
 import UserContent  from "../atoms/UserContent";
-import TabbedEvents from "../atoms/TabbedEvents";
 
 
 function AminatedRoutes() {
@@ -28,7 +27,7 @@ function AminatedRoutes() {
           <Route path="register" element={<Regesiter />} />
           <Route path="/dash" element={<SKipDash />} />
         <Route path="/userdetails" element={<UserDetailsBar user={user} />} />
-        <Route path="/currentevent" element={<TabbedEvents/>} />
+        <Route path="/currentevent" element={<Ta events={events} user={user} />} />
         <Route path="/content" element={<UserContent user={user} events={events} />} />
           <Route
             path="dash"
