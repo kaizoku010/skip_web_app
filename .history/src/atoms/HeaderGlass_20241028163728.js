@@ -59,7 +59,7 @@ function HeaderGlass() {
                   }}
                 >
                   <SlMenu className="user_ic" />
-                  <Link className="login-text">
+                  <Link to="/login" target="_parent" className="login-text">
                     Menu
                   </Link>
                 </div>

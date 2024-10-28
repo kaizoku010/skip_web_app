@@ -43,7 +43,7 @@ function HeaderGlass() {
           </div>
         <div className="host-here">
           <img className="header_ic" src={Logo} />
-          <div style={{ textDecoration: "none !important" }}>
+          <Link style={{ textDecoration: "none !important" }}>
             <div className="host glassy">
               <Popover
                 placement="bottomLeft"
@@ -59,13 +59,13 @@ function HeaderGlass() {
                   }}
                 >
                   <SlMenu className="user_ic" />
-                  <Link className="login-text">
+                  <Link to="/login" target="_parent" className="login-text">
                     Menu
                   </Link>
                 </div>
               </Popover>
             </div>
-          </div>
+          </Link>
         </div>
         <div className="event-details">
           {/* <p>hello is it me you're looking for</p> */}
