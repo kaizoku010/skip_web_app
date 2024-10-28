@@ -60,7 +60,7 @@ function HeaderGlass() {
                 >
                   <SlMenu className="user_ic" />
                   <Link to="/login" target="_parent" className="login-text">
-                    Menu
+                    Info Menu
                   </Link>
                 </div>
               </Popover>
