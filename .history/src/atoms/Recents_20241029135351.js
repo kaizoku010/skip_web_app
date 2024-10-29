@@ -37,8 +37,8 @@ function Recents() {
       <div className="recent_event_data">
         <img src={EventImage3} className="recent_img" />
         <div className="recent_text_holder">
-        <p className="rth_desc">{"Imagine arriving at a conference and skipping the long lines. With Sk!p, you can easily check in using your mobile device, saving time and eliminating the hassle of manual registration. Plus, you’ll receive personalized event schedules and notifications, ensuring you never miss an important session or activity."}</p>
-        <p className="rth_desc">{"Networking can be intimidating, but Sk!p makes it simple and enjoyable. Using intelligent algorithms, Sk!p matches you with attendees who share similar interests and professional backgrounds. This intelligent matchmaking facilitates meaningful connections and fosters collaboration. Additionally, real-time interaction features allow you to find and connect with other participants dynamically and efficiently."}</p>
+        <p className="rth_desc">{sampleText}</p>
+        <p className="rth_desc">{sampleText}</p>
 
         </div>
       </div>

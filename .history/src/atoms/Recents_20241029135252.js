@@ -21,14 +21,14 @@ function Recents() {
         <img src={EventImage} className="recent_img" />
         <div className="recent_text_holder">
         <p className="rth_desc">{"With Sk!p, you can wave goodbye to awkward introductions and say hello to meaningful connections. Our app is like your personal networking assistant, matching you with the right people and providing ice-breakers to get the conversation flowing. No more fumbling for business cards—Sk!p’s got you covered with virtual ones!"}</p>
-        <p className="rth_desc">{"Need a front-row seat? No problem! Sk!p’s venue diagramming tool lets you pre-book your seat, so you’re always in the perfect spot. Whether you want to be close to the action or need a quick escape route, you choose where you sit. This means less stress and more focus on making those valuable connections."}</p>
+        <p className="rth_desc">{sampleText}</p>
 
         </div>
       </div>
       <div className="recent_event_data">
       <div className="recent_text_holder">
-        <p className="rth_desc">{"Welcome to the future of networking with Sk!p, a cutting-edge conference management tool designed to make connecting easier than ever before. Developed by Moxie5 Marketing Agency, Sk!p is here to transform how you engage, network, and grow at events. Say goodbye to the awkwardness of manual check-ins and missed connections; Sk!p is here to ensure you make the most of every event you attend."}</p>
-        <p className="rth_desc">{"Sk!p is a revolutionary self-check-in and conference management software. It streamlines the process of attending and participating in conferences, making it easier for attendees to connect, engage, and network with one another. But what exactly does this mean for you?"}</p>
+        <p className="rth_desc">{sampleText}</p>
+        <p className="rth_desc">{sampleText}</p>
 
         </div>
         <img src={EventImage2} className="recent_img" />
@@ -37,8 +37,8 @@ function Recents() {
       <div className="recent_event_data">
         <img src={EventImage3} className="recent_img" />
         <div className="recent_text_holder">
-        <p className="rth_desc">{"Imagine arriving at a conference and skipping the long lines. With Sk!p, you can easily check in using your mobile device, saving time and eliminating the hassle of manual registration. Plus, you’ll receive personalized event schedules and notifications, ensuring you never miss an important session or activity."}</p>
-        <p className="rth_desc">{"Networking can be intimidating, but Sk!p makes it simple and enjoyable. Using intelligent algorithms, Sk!p matches you with attendees who share similar interests and professional backgrounds. This intelligent matchmaking facilitates meaningful connections and fosters collaboration. Additionally, real-time interaction features allow you to find and connect with other participants dynamically and efficiently."}</p>
+        <p className="rth_desc">{sampleText}</p>
+        <p className="rth_desc">{sampleText}</p>
 
         </div>
       </div>
