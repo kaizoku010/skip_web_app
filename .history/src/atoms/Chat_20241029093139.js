@@ -5,7 +5,7 @@ import { AuthContext } from "../logic/AuthContext";
 import TestImg from "../assets/pp.jpg";
 
 const Chat = () => {
-  const { all_attended=[], chatRooms=[], user } = useContext(AuthContext); // Assuming currentUser contains the current user's email
+  const { all_attended, chatRooms, user } = useContext(AuthContext); // Assuming currentUser contains the current user's email
   // console.log("chat rooms: ", chatRooms);
   // console.log("all attendees: ", all_attended);
 
