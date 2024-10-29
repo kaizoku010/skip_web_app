@@ -6,7 +6,7 @@ import axios from "axios";
 import TestImg from "../assets/pp.jpg";
 
 const Chat = () => {
-  const { all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
+  const { all_attended = [], chatRooms = [], user } = useContext(AuthContext);
   const [chatMembers, setChatMembers] = useState();
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -181,7 +181,7 @@ const Chat = () => {
 
         <div className="chat-input-container">
             <Input.TextArea
-                rows={4}
+                rows={5}
                 value={newMessage}
                 onChange={(e) => setNewMessage(e.target.value)}
                 placeholder="Type your message..."

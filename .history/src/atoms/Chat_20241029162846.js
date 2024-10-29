@@ -1,4 +1,4 @@
-import { Avatar, Collapse, Modal, Input, Button, Progress, notification } from "antd";
+import { Avatar, Collapse, Modal, Input, Button } from "antd";
 import { useContext, useState, useEffect } from "react";
 import "./chat.css";
 import { AuthContext } from "../logic/AuthContext";
@@ -6,13 +6,12 @@ import axios from "axios";
 import TestImg from "../assets/pp.jpg";
 
 const Chat = () => {
-  const { all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
+  const { all_attended = [], chatRooms = [], user } = useContext(AuthContext);
   const [chatMembers, setChatMembers] = useState();
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [chatModalVisible, setChatModalVisible] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   // Function to get user details from attendee list based on participant's email
   const getAttendeeInfo = (email) => {
@@ -37,51 +36,20 @@ const Chat = () => {
   };
 
   // Function to send a new message
-
   const sendMessage = async () => {
     if (newMessage.trim() === "") return;
 
-    // Log selectedRoom for debugging
-    // console.log("Selected Room:", selectedRoom);
-
-    if (!selectedRoom || !selectedRoom.participants || selectedRoom.participants.length < 2) {
-        console.error("Participants not found in selectedRoom!");
-        return; // Exit if selectedRoom or participants are missing
-    }
-
-    const receiverEmail = selectedRoom.participants[1]; // Always take the second participant
-
     try {
-        setLoading(true); // Start loading
-        const response = await axios.post(
-            `https://skip-api-1gup.onrender.com/send_message/${user.userId}/${receiverEmail}`, // Use receiver email
-            {
-                chatRoomId: selectedRoom.chatRoomId, // Pass chatRoomId
-                messageContent: newMessage, // Pass message content
-            }
-        );
-
-        setMessages((prevMessages) => [...prevMessages, response.data.message]);
-        setNewMessage(""); // Clear the input field
-
-        // Show notification
-        notification.success({
-            message: 'Message Sent',
-            description: 'Your message has been successfully sent.',
-        });
+      const response = await axios.post("https://skip-api-1gup.onrender.com/send_message/", {
+        chatRoomId: selectedRoom.chatRoomId,
+        messageContent: newMessage,
+      });
+      setMessages((prevMessages) => [...prevMessages, response.data.message]);
+      setNewMessage(""); // Clear the input
     } catch (error) {
-        console.error("Error sending message:", error);
-        notification.error({
-            message: 'Message Sending Failed',
-            description: 'There was an error sending your message.',
-        });
-    } finally {
-        setLoading(false); // Stop loading
+      console.error("Error sending message:", error);
     }
-};
-
-
-
+  };
 
   // Remove duplicate chat rooms based on senderId and receiverId
   const uniqueChatRooms = chatRooms.filter((room, index, self) => {
@@ -152,50 +120,49 @@ const Chat = () => {
 
       {/* Chat Modal */}
       <Modal
-    title={`Chat with ${selectedRoom ? selectedRoom.participants[0] : ""}`}
-    open={chatModalVisible}
-    onCancel={() => setChatModalVisible(false)}
-    footer={null}
+  title={`Chat with ${
+    selectedRoom ? selectedRoom.participants[0] : ""
+  }`}
+  open={chatModalVisible} // Update here
+  onCancel={() => setChatModalVisible(false)}
+  footer={null}
 >
-    <div className="chat-modal-content">
-        {/* Show loading indicator while fetching messages */}
-        {!messages.length ? (
-            <p>Loading messages...</p>
-        ) : (
-            <div className="chat-messages">
-                {messages.map((msg, idx) => (
-                    <div
-                        key={idx}
-                        className={`chat-message ${
-                            msg.senderId === user.userId ? "outgoing" : "incoming"
-                        }`}
-                    >
-                        <p>{msg.messageContent}</p>
-                        <small>{new Date(msg.timestamp).toLocaleString()}</small>
-                    </div>
-                ))}
-            </div>
-        )}
+  <div className="chat-modal-content">
+    {/* Show loading indicator while fetching messages */}
+    {!messages.length ? (
+      <p>Loading messages...</p>
+    ) : (
+      <div className="chat-messages">
+        {messages.map((msg, idx) => (
+          <div
+            key={idx}
+            className={`chat-message ${
+              msg.senderId === user.userId ? "outgoing" : "incoming"
+            }`}
+          >
+            <p>{msg.messageContent}</p>
+            <small>{new Date(msg.timestamp).toLocaleString()}</small>
+          </div>
+        ))}
+      </div>
+    )}
 
-        {loading && <Progress percent={100} showInfo={false} />}
-
-        <div className="chat-input-container">
-            <Input.TextArea
-                rows={4}
-                value={newMessage}
-                onChange={(e) => setNewMessage(e.target.value)}
-                placeholder="Type your message..."
-            />
-            <div className="chat-actions">
-                <Button>Share Contact</Button>
-                <Button type="primary" onClick={sendMessage}>
-                    Send Message
-                </Button>
-            </div>
-        </div>
+    <div className="chat-input-container">
+      <Input.TextArea
+        rows={5}
+        value={newMessage}
+        onChange={(e) => setNewMessage(e.target.value)}
+        placeholder="Type your message..."
+      />
+      <div className="chat-actions">
+        <Button>Share Contact</Button>
+        <Button type="primary" onClick={sendMessage}>
+          Send Message
+        </Button>
+      </div>
     </div>
+  </div>
 </Modal>
-
 
     </div>
   );
