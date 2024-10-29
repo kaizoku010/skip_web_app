@@ -42,6 +42,7 @@ const AuthProvider = ({ children }) => {
         setEvents(response.data); // Save the events data to state
       } catch (err) {
         setLoading(false);  // Set loading to true before the fetch starts
+
         setError('Failed to load events');
         console.error('Error fetching events:', err);
       } finally {

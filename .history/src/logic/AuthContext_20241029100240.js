@@ -41,7 +41,6 @@ const AuthProvider = ({ children }) => {
         const response = await axios.get('https://skip-api-1gup.onrender.com/get_all_events');
         setEvents(response.data); // Save the events data to state
       } catch (err) {
-        setLoading(false);  // Set loading to true before the fetch starts
         setError('Failed to load events');
         console.error('Error fetching events:', err);
       } finally {
@@ -282,17 +281,26 @@ const AuthProvider = ({ children }) => {
 
     //people who sent u requests...
     const getMatchingAttendees = (attendees, chatRequests) => {
-      return attendees.map(attendee => {
-        const matchingRequest = chatRequests?.find(request => request.senderId === attendee.userEmail);
-        if (matchingRequest) {
-          return {
-            ...attendee,
-            requestId: matchingRequest.requestId,
-            status: matchingRequest.status,
-          };
-        }
-        return null;
-      }).filter(attendee => attendee !== null);
+      // Filter attendees based on whether their email matches any senderId in chatRequests
+      const matchingAttendees = attendees
+        .map(attendee => {
+          // Find the chat request that corresponds to this attendee
+          const matchingRequest = chatRequests?.find(request => request.senderId === attendee.userEmail);
+          
+          if (matchingRequest) {
+            // Return a new object with the attendee data plus the requestId from the chat request
+            return {
+              ...attendee,
+              requestId: matchingRequest.requestId,
+              status: matchingRequest.status, // Include the requestId here
+            };
+          }
+          return null; // Return null if no matching request found
+        })
+        .filter(attendee => attendee !== null); // Filter out null values
+    
+      setRequstesFiltred(matchingAttendees); // Optional, to update state
+      return matchingAttendees;
     };
   
     
@@ -302,12 +310,10 @@ const AuthProvider = ({ children }) => {
         const response = await axios.put(`https://skip-api-1gup.onrender.com/chat_requests/${requestId}/${user.userEmail}/accept`, {
           action: 'accept',
         });
-      // Add the accepted attendee to the global friends list
 
-      
         const acceptedAttendee = chatRequests.find(req => req.requestId === requestId);
         if (acceptedAttendee) {
-          setFriendsList(prev => [...prev, friendsList]);
+          setFriendsList(prev => [...prev, fir]);
         }
         return response.data
       } catch (error) {
@@ -405,8 +411,7 @@ const AuthProvider = ({ children }) => {
         sentChatRequests,
         all_attended,
         getAllAttendees,
-        myFriendRequests,
-        friendsList,
+        myFriendRequests
       }}
     >
       {children}

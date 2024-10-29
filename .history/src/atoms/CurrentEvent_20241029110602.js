@@ -18,7 +18,7 @@ function CurrentEvent({ user, events }) {
     setIsModalVisible(true);
   };
 
- console.log("friend list:", friendList)
+  // console.log("selected user:", selectedAttendee)
   const handleSendChatRequest = async () => {
     const senderId = user?.userEmail;
     const receiverId = selectedAttendee?.userEmail;

@@ -51,10 +51,10 @@ const Chat = () => {
                             src={participantInfo?.userImage || TestImg} // You can replace this with participantInfo's image if available
                           />
                           <div className="chat-preview-content">
-                            <p className="chat-userName">
+                            <p className="userName">
                               {participantInfo.username || "Unknown User"}
                             </p>
-                            <p className="chat-job"><strong className="strong-text">Works At: </strong>{participantInfo.job}</p>
+                            <p><strong>Works At: </strong>{participantInfo.job}</p>
                             {/* <p className="msg-excpt">
                               Contact: {participantInfo.contact}
                             </p> */}

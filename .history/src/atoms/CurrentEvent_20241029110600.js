@@ -8,7 +8,7 @@ import { Modal, Button } from "antd";
 import { AuthContext } from "../logic/AuthContext";
 
 function CurrentEvent({ user, events }) {
-  const { sendChatRequest, friendList } = useContext(AuthContext);
+  const { sendChatRequest, friend } = useContext(AuthContext);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedAttendee, setSelectedAttendee] = useState(null);
 
@@ -18,7 +18,7 @@ function CurrentEvent({ user, events }) {
     setIsModalVisible(true);
   };
 
- console.log("friend list:", friendList)
+  // console.log("selected user:", selectedAttendee)
   const handleSendChatRequest = async () => {
     const senderId = user?.userEmail;
     const receiverId = selectedAttendee?.userEmail;

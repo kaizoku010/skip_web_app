@@ -41,7 +41,8 @@ const AuthProvider = ({ children }) => {
         const response = await axios.get('https://skip-api-1gup.onrender.com/get_all_events');
         setEvents(response.data); // Save the events data to state
       } catch (err) {
-        setLoading(false);  // Set loading to true before the fetch starts
+        setLoading(true);  // Set loading to true before the fetch starts
+
         setError('Failed to load events');
         console.error('Error fetching events:', err);
       } finally {

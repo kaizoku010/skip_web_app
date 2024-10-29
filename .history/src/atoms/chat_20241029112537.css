@@ -33,15 +33,8 @@ height: 25%;
 }
 
 .chat-job{
-    font-size: small;
-    color: gray;
-}
-
-.strong-text{
-    font-size: small !important;
+    color: red;
 }
 
 
-.chat-preview-content{
-    margin-left: 1%;
-}
+.chat-preview-content{}

@@ -41,7 +41,6 @@ const AuthProvider = ({ children }) => {
         const response = await axios.get('https://skip-api-1gup.onrender.com/get_all_events');
         setEvents(response.data); // Save the events data to state
       } catch (err) {
-        setLoading(false);  // Set loading to true before the fetch starts
         setError('Failed to load events');
         console.error('Error fetching events:', err);
       } finally {
@@ -302,9 +301,7 @@ const AuthProvider = ({ children }) => {
         const response = await axios.put(`https://skip-api-1gup.onrender.com/chat_requests/${requestId}/${user.userEmail}/accept`, {
           action: 'accept',
         });
-      // Add the accepted attendee to the global friends list
 
-      
         const acceptedAttendee = chatRequests.find(req => req.requestId === requestId);
         if (acceptedAttendee) {
           setFriendsList(prev => [...prev, friendsList]);
@@ -405,8 +402,7 @@ const AuthProvider = ({ children }) => {
         sentChatRequests,
         all_attended,
         getAllAttendees,
-        myFriendRequests,
-        friendsList,
+        myFriendRequests
       }}
     >
       {children}

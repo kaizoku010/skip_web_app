@@ -1,5 +1,5 @@
 import { Avatar, Collapse } from "antd";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import "./chat.css";
 import { AuthContext } from "../logic/AuthContext";
 import TestImg from "../assets/pp.jpg";
@@ -11,14 +11,12 @@ const Chat = () => {
   // console.log("chat rooms: ", chatRooms);
   // console.log("all attendees: ", all_attended);
 
+  const { Panel } = Collapse;
+
   // Function to get user details from attendee list based on participant's email
   const getAttendeeInfo = (email) => {
-    const skipFriends = all_attended?.find((attendee) => attendee.userEmail === email);
-    return skipFriends
+    return all_attended?.find((attendee) => attendee.userEmail === email);
   };
-
-
-  // console.log("friend list", chatMembers)
 
   return (
     <div className="chat-div">
@@ -39,7 +37,7 @@ const Chat = () => {
                     // Map the other participants to display their info
                     return otherParticipants.map((participantEmail) => {
                       const participantInfo = getAttendeeInfo(participantEmail);
-                      // setChatMembers(participantInfo)
+                      setChatMembers(participantInfo)
                       if (!participantInfo) {
                         return null; // If no attendee info is found, skip rendering
                       }
@@ -51,10 +49,9 @@ const Chat = () => {
                             src={participantInfo?.userImage || TestImg} // You can replace this with participantInfo's image if available
                           />
                           <div className="chat-preview-content">
-                            <p className="chat-userName">
+                            <p className="userName">
                               {participantInfo.username || "Unknown User"}
                             </p>
-                            <p className="chat-job"><strong className="strong-text">Works At: </strong>{participantInfo.job}</p>
                             {/* <p className="msg-excpt">
                               Contact: {participantInfo.contact}
                             </p> */}

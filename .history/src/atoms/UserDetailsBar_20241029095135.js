@@ -12,21 +12,16 @@ function UserDetailsBar() {
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
-
-
   useEffect(() => {
     // If the data is not yet available, return early
     if (!all_attended || !sentChatRequests || !myFriendRequests) {
       setLoading(true); // Keep loading state until data is available
       return;
     }
-
+  
     // If all required data is available, proceed
     const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
-    const acceptedAttendees = matchingAttendees.filter(user => user.status !== 'accepted');
-
-    setFoundUsers(acceptedAttendees);
-    // setFoundUsers(matchingAttendees);
+    setFoundUsers(matchingAttendees);
     setLoading(false); // Data is available, stop loading
   
   }, [all_attended, sentChatRequests, myFriendRequests]);
@@ -45,7 +40,7 @@ function UserDetailsBar() {
 
   
   // if (loading) return <p style={{color:"white"}}>Loading, please wait...</p>;
- console.log("found user: ", foundUsers)
+//  console.log("found user: ", foundUsers)
 
   return (
     <div className="user_details_bar">
@@ -80,7 +75,7 @@ function UserDetailsBar() {
                             works at: {request.job}
                           </p>
                           <div className="udb-actions">
-                            <Button className="udb-btn" type="primary" onClick={() => acceptRequest(request.requestId, request.userEmail)}>
+                            <Button className="udb-btn" type="primary" onClick={() => acceptRequest(request.requestId)}>
                               Approve
                             </Button>
                             <Button className="udb-btn udb-btn-decline" type="danger" onClick={() => declineRequest(request.requestId)}>

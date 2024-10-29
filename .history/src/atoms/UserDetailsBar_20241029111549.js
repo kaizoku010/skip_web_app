@@ -23,8 +23,8 @@ function UserDetailsBar() {
 
     // If all required data is available, proceed
     const matchingAttendees = getMatchingAttendees(all_attended, myFriendRequests);
-    const acceptedAttendees = matchingAttendees.filter(user => user.status !== 'accepted');
-
+    const acceptedAttendees = matchingAttendees.filter(user => user.status !=== 'accepted');
+  
     setFoundUsers(acceptedAttendees);
     // setFoundUsers(matchingAttendees);
     setLoading(false); // Data is available, stop loading

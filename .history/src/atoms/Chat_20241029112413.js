@@ -54,7 +54,7 @@ const Chat = () => {
                             <p className="chat-userName">
                               {participantInfo.username || "Unknown User"}
                             </p>
-                            <p className="chat-job"><strong className="strong-text">Works At: </strong>{participantInfo.job}</p>
+                            <p className="chat-job"><strong>Works At: </strong>{participantInfo.job}</p>
                             {/* <p className="msg-excpt">
                               Contact: {participantInfo.contact}
                             </p> */}

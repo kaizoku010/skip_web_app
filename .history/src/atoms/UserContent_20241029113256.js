@@ -56,6 +56,34 @@ function UserContent({ user, events }) {
   if (error)
     return (
       <div className="story">
+      
+      <div className="spin-container">
+        <Spin size="large" tip="please wait..." />{" "}
+        {/* Ant Design Spin loader */}
+      </div>
+        <div className="make-post-details">
+          <img src={user.userImage} alt="dp" />
+      
+          <Input
+            className="make-post-input"
+            placeholder="What's on your mind"
+            onClick={showModal} // This triggers the modal to open
+          />
+        </div>
+        <div className="make-post-actions">
+          <div className="ic_post_area">
+            <VideoCameraFilled className="icp_video mobile_ic_resize" />
+            <p className="icp_text">Video</p>
+          </div>
+          <div className="ic_post_area">
+            <FileImageFilled className="icp_image  mobile_ic_resize" />
+            <p className="icp_text">Media 2</p>
+          </div>
+          <div className="ic_post_area">
+            <FileAddFilled className="icp_do mobile_ic_resizec" />
+            <p className="icp_text">Document</p>
+          </div>
+        </div>
         <div className="spin-container">
         <Spin size="large" tip="please wait..." />{" "}
         {/* Ant Design Spin loader */}

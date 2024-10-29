@@ -11,14 +11,16 @@ const Chat = () => {
   // console.log("chat rooms: ", chatRooms);
   // console.log("all attendees: ", all_attended);
 
+  const { Panel } = Collapse;
+
   // Function to get user details from attendee list based on participant's email
   const getAttendeeInfo = (email) => {
     const skipFriends = all_attended?.find((attendee) => attendee.userEmail === email);
-    return skipFriends
+     return skipFriends
   };
 
 
-  // console.log("friend list", chatMembers)
+  console.log("friend list")
 
   return (
     <div className="chat-div">
@@ -51,10 +53,9 @@ const Chat = () => {
                             src={participantInfo?.userImage || TestImg} // You can replace this with participantInfo's image if available
                           />
                           <div className="chat-preview-content">
-                            <p className="chat-userName">
+                            <p className="userName">
                               {participantInfo.username || "Unknown User"}
                             </p>
-                            <p className="chat-job"><strong className="strong-text">Works At: </strong>{participantInfo.job}</p>
                             {/* <p className="msg-excpt">
                               Contact: {participantInfo.contact}
                             </p> */}

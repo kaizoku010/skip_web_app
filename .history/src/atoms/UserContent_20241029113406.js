@@ -56,6 +56,7 @@ function UserContent({ user, events }) {
   if (error)
     return (
       <div className="story">
+      
         <div className="spin-container">
         <Spin size="large" tip="please wait..." />{" "}
         {/* Ant Design Spin loader */}
