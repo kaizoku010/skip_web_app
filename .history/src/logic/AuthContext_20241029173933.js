@@ -23,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const [chatRooms, setChatRooms] = useState([]); // Holds chat rooms
   const [chatRequests, setChatRequests] = useState([]); 
   const [friendsList, setFriendsList] = useState([]);
+  const [userEvent, setUserEvent] = useState()
 
   // Load user from localStorage if available when the app starts
   useEffect(() => {
@@ -32,6 +33,12 @@ const AuthProvider = ({ children }) => {
       setUser(JSON.parse(savedUser)); // Restore user state
     }
   }, []);
+
+
+  
+  useEffect(()=>{
+   
+  }, [])
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -47,6 +54,7 @@ const AuthProvider = ({ children }) => {
         setLoading(false);
       }
     };
+
 
     fetchEvents();
   }, []);
@@ -66,7 +74,10 @@ const AuthProvider = ({ children }) => {
   //     fetchChatRequests(user?.userEmail);
   //   }
   // }, [user]);
-  
+
+
+
+
   const fetchSentChatRequests = async () => {
     try {
       const response = await axios.get(`https://skip-api-1gup.onrender.com/get_sent_chat_reqs/${user.userEmail}`);
@@ -406,6 +417,7 @@ const AuthProvider = ({ children }) => {
         getAllAttendees,
         myFriendRequests,
         friendsList,
+        userEvent
       }}
     >
       {children}

@@ -23,6 +23,7 @@ const AuthProvider = ({ children }) => {
   const [chatRooms, setChatRooms] = useState([]); // Holds chat rooms
   const [chatRequests, setChatRequests] = useState([]); 
   const [friendsList, setFriendsList] = useState([]);
+  const [userEvent, setUserEvent] = useState()
 
   // Load user from localStorage if available when the app starts
   useEffect(() => {
@@ -47,6 +48,16 @@ const AuthProvider = ({ children }) => {
         setLoading(false);
       }
     };
+
+useEffect(()=>{
+  const userEvent = events.find((event) =>
+    event.attendees.some((attendee) => attendee.userEmail === user?.userEmail)
+  );
+
+  setUserEvent(userEvent)
+
+})
+
 
     fetchEvents();
   }, []);

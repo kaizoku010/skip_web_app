@@ -221,8 +221,8 @@ const Chat = () => {
                   style={msg.messageContent.includes("Contact Info") ? { color: "white", backgroundColor:"#128d25" } : {}} // Unique color for contact messages
                 >
                   <p>{msg.messageContent}</p>
-                  <small>{formatDate(msg.timestamp)}</small> {/* Format the date here */}
-                  </div>
+                  <small>{new Date(msg.timestamp).toLocaleString()}</small>
+                </div>
               ))}
             </div>
           )}

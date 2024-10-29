@@ -128,18 +128,6 @@ const Chat = () => {
     }
   };
 
-  const formatDate = (timestamp) => {
-    const now = new Date();
-    const date = new Date(timestamp);
-    const seconds = Math.floor((now - date) / 1000);
-    
-    if (seconds < 60) return `${seconds} second${seconds !== 1 ? 's' : ''} ago`;
-    if (seconds < 3600) return `${Math.floor(seconds / 60)} minute${Math.floor(seconds / 60) !== 1 ? 's' : ''} ago`;
-    if (seconds < 86400) return `${Math.floor(seconds / 3600)} hour${Math.floor(seconds / 3600) !== 1 ? 's' : ''} ago`;
-    
-    return `${Math.floor(seconds / 86400)} day${Math.floor(seconds / 86400) !== 1 ? 's' : ''} ago`;
-  };
-
   const uniqueChatRooms = chatRooms.filter((room, index, self) => {
     const participants = room.participants.sort();
     const roomKey = `${participants[0]}-${participants[1]}`;
@@ -152,7 +140,6 @@ const Chat = () => {
       })
     );
   });
-
 
   return (
     <div className="chat-div">
@@ -218,11 +205,11 @@ const Chat = () => {
                 <div
                   key={idx}
                   className={`chat-message ${msg.senderId === user.userId ? "outgoing" : "incoming"}`}
-                  style={msg.messageContent.includes("Contact Info") ? { color: "white", backgroundColor:"#128d25" } : {}} // Unique color for contact messages
+                  style={msg.messageContent.includes("Contact Info") ? { color: "white" } : {}} // Unique color for contact messages
                 >
                   <p>{msg.messageContent}</p>
-                  <small>{formatDate(msg.timestamp)}</small> {/* Format the date here */}
-                  </div>
+                  <small>{new Date(msg.timestamp).toLocaleString()}</small>
+                </div>
               ))}
             </div>
           )}

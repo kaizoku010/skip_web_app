@@ -6,7 +6,7 @@ import axios from "axios";
 import TestImg from "../assets/pp.jpg";
 
 const Chat = () => {
-  const { all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
+  const { all_attended = [], chatRooms = [], user, userEvent } = useContext(AuthContext);
   const [chatMembers, setChatMembers] = useState();
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -14,25 +14,6 @@ const Chat = () => {
   const [chatModalVisible, setChatModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [shareContactCount, setShareContactCount] = useState(0); // Track share contact button clicks
-  const [messageCount, setMessageCount] = useState(0); // Track messages sent
-  const [userEvent_, setUserEvent] = useState();
-
-  // Find user events and include message count and shared contact count
-  const userEvents = events.find((event) =>
-    event.attendees.some((attendee) => attendee.userEmail === user.userEmail)
-  );
-
-  useEffect(() => {
-    if (userEvents) {
-      setUserEvent({
-        ...userEvents,
-        messageCount: messageCount,
-        shareContactCount: shareContactCount,
-      });
-    }
-  }, [messageCount, shareContactCount, userEvents]);
-
-  // console.log("user event: ", userEvent_);
 
   const getAttendeeInfo = (email) => {
     return all_attended?.find((attendee) => attendee.userEmail === email);
@@ -75,8 +56,7 @@ const Chat = () => {
 
       setMessages((prevMessages) => [...prevMessages, response.data.message]);
       setNewMessage("");
-      setMessageCount((prevCount) => prevCount + 1); // Increment message count
-
+      
       notification.success({
         message: 'Message Sent',
         description: 'Your message has been successfully sent.',
@@ -96,7 +76,7 @@ const Chat = () => {
   const shareContact = async () => {
     if (!selectedRoom || selectedRoom.participants.length < 2) return;
 
-    const contactEmail = selectedRoom.participants[0];
+    const contactEmail = selectedRoom.participants[1];
     const contactInfo = getAttendeeInfo(contactEmail);
     const contactMessage = `Contact Info: ${contactInfo.username}, Email: ${contactInfo.userEmail}`;
 
@@ -128,18 +108,6 @@ const Chat = () => {
     }
   };
 
-  const formatDate = (timestamp) => {
-    const now = new Date();
-    const date = new Date(timestamp);
-    const seconds = Math.floor((now - date) / 1000);
-    
-    if (seconds < 60) return `${seconds} second${seconds !== 1 ? 's' : ''} ago`;
-    if (seconds < 3600) return `${Math.floor(seconds / 60)} minute${Math.floor(seconds / 60) !== 1 ? 's' : ''} ago`;
-    if (seconds < 86400) return `${Math.floor(seconds / 3600)} hour${Math.floor(seconds / 3600) !== 1 ? 's' : ''} ago`;
-    
-    return `${Math.floor(seconds / 86400)} day${Math.floor(seconds / 86400) !== 1 ? 's' : ''} ago`;
-  };
-
   const uniqueChatRooms = chatRooms.filter((room, index, self) => {
     const participants = room.participants.sort();
     const roomKey = `${participants[0]}-${participants[1]}`;
@@ -152,7 +120,6 @@ const Chat = () => {
       })
     );
   });
-
 
   return (
     <div className="chat-div">
@@ -218,11 +185,11 @@ const Chat = () => {
                 <div
                   key={idx}
                   className={`chat-message ${msg.senderId === user.userId ? "outgoing" : "incoming"}`}
-                  style={msg.messageContent.includes("Contact Info") ? { color: "white", backgroundColor:"#128d25" } : {}} // Unique color for contact messages
+                  style={msg.messageContent.includes("Contact Info") ? { color: "blue" } : {}} // Unique color for contact messages
                 >
                   <p>{msg.messageContent}</p>
-                  <small>{formatDate(msg.timestamp)}</small> {/* Format the date here */}
-                  </div>
+                  <small>{new Date(msg.timestamp).toLocaleString()}</small>
+                </div>
               ))}
             </div>
           )}
