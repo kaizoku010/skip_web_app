@@ -51,22 +51,6 @@ const Chat = () => {
     }
   };
 
-  // Remove duplicate chat rooms based on senderId and receiverId
-  const uniqueChatRooms = chatRooms.filter((room, index, self) => {
-    // Normalize sender and receiver IDs
-    const participants = room.participants.sort(); // Sort participants to handle (A, B) and (B, A) the same
-    const roomKey = `${participants[0]}-${participants[1]}`;
-
-    // Use a Set to check for duplicates
-    return (
-      index ===
-      self.findIndex((r) => {
-        const sortedParticipants = r.participants.sort();
-        return `${sortedParticipants[0]}-${sortedParticipants[1]}` === roomKey;
-      })
-    );
-  });
-
   return (
     <div className="chat-div">
       <Collapse
@@ -76,8 +60,8 @@ const Chat = () => {
             label: "Sk!p Friends",
             children: (
               <div>
-                {uniqueChatRooms.length > 0 ? (
-                  uniqueChatRooms.map((room) => {
+                {chatRooms.length > 0 ? (
+                  chatRooms.map((room) => {
                     const otherParticipants = room.participants.filter(
                       (email) => email !== user.userEmail
                     );
@@ -97,9 +81,9 @@ const Chat = () => {
                           />
                           <div className="chat-preview-content">
                             <p className="chat-userName">
-                              <strong>
-                                {participantInfo.username || "Unknown User"}
-                              </strong>
+                            <strong>
+                            {participantInfo.username || "Unknown User"}
+                            </strong>
                             </p>
                             <p className="chat-job">
                               {participantInfo.job}
@@ -148,12 +132,18 @@ const Chat = () => {
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
             />
-            <div className="chat-actions">
-              <Button>Share Contact</Button>
-              <Button type="primary" onClick={sendMessage}>
-                Send Message
-              </Button>
-            </div>
+<div className="chat-actions">
+
+<Button >
+              Share Contact
+            </Button>
+            <Button type="primary" onClick={sendMessage}>
+              Send Message
+            </Button>
+</div>
+
+         
+          
           </div>
         </div>
       </Modal>
