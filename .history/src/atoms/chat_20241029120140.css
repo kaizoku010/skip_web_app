@@ -8,16 +8,8 @@
     align-items: center;
     /* background-color: red; */
     text-align: left;
-    cursor: pointer;transition: .2s;
-
     display: flex;
     margin-bottom: 10px;
-}
-
-.chat-room-item:hover{
-    background-color: rgba(128, 128, 128, 0.092);
-    border-radius: 7px;
-    padding: 2%;
 }
 
 .chat-preview-content> p{
@@ -47,7 +39,7 @@ height: 25%;
 .msg-excpt{
     font-size: smaller;
     color: gray;
-    width: 180px;
+    width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -61,11 +53,4 @@ height: 25%;
 
 .chat-preview-content{
     margin-left: 1%;
-}
-
-
-.chat-actions{
-    display: flex;
-    gap: 1%;
-    margin-top: 1%;
 }

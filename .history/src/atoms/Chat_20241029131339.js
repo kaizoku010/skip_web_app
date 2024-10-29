@@ -81,11 +81,10 @@ const Chat = () => {
                           />
                           <div className="chat-preview-content">
                             <p className="chat-userName">
-                            <strong>
-                            {participantInfo.username || "Unknown User"}
-                            </strong>
+                              {participantInfo.username || "Unknown User"}
                             </p>
                             <p className="chat-job">
+                              <strong>At </strong>
                               {participantInfo.job}
                             </p>
                           </div>
@@ -105,7 +104,7 @@ const Chat = () => {
       {/* Chat Modal */}
       <Modal
         title={`Chat with ${
-          selectedRoom ? selectedRoom.participants[0] : ""
+          selectedRoom ? selectedRoom.participants[1] : ""
         }`}
         visible={chatModalVisible}
         onCancel={() => setChatModalVisible(false)}
@@ -127,23 +126,14 @@ const Chat = () => {
           </div>
           <div className="chat-input-container">
             <Input.TextArea
-              rows={5}
+              rows={2}
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
             />
-<div className="chat-actions">
-
-<Button >
-              Share Contact
-            </Button>
             <Button type="primary" onClick={sendMessage}>
               Send
             </Button>
-</div>
-
-         
-          
           </div>
         </div>
       </Modal>

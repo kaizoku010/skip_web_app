@@ -6,7 +6,7 @@ import NO_EVENT from "../assets/opps.png";
 import { Link } from "react-router-dom";
 import { Modal, Button } from "antd";
 import { AuthContext } from "../logic/AuthContext";
-import ErrorImage from "../assets/error.png"
+import ErrorImage from ""
 
 function CurrentEvent({ user, events }) {
   const { sendChatRequest, friendList } = useContext(AuthContext);
@@ -62,9 +62,9 @@ function CurrentEvent({ user, events }) {
     return (
       <div className="user_current_event">
         <div style={{ color: "gray" }} className="no_event_found">
-          <img className="no_data_image" src={ErrorImage} />
+          <img className="no_data_image" src={NO_EVENT} />
           <p className="no_event_found_txt">
-            Sorry, but you will have to regesiter for one of our events to unlock the app!
+            Please regesiter for one of our events to unlock the app!
           </p>
           <Link className="start_here" to="/">
             Click Me

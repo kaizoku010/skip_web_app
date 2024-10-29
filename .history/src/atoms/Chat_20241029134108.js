@@ -127,7 +127,7 @@ const Chat = () => {
           </div>
           <div className="chat-input-container">
             <Input.TextArea
-              rows={5}
+              rows={10}
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."

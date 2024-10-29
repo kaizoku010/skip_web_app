@@ -116,9 +116,9 @@ text-decoration: underline !important;
 }
 
 .attendee:hover{
-    background-color: rgba(128, 128, 128, 0.092);
+    background-color: rgba(128, 128, 128, 0.293);
     border-radius: 7px;
-    padding: 2%;
+    padding: 1%;
 }
 
 

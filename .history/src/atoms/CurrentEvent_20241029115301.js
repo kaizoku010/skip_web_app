@@ -64,7 +64,7 @@ function CurrentEvent({ user, events }) {
         <div style={{ color: "gray" }} className="no_event_found">
           <img className="no_data_image" src={ErrorImage} />
           <p className="no_event_found_txt">
-            Sorry, but you will have to regesiter for one of our events to unlock the app!
+            Sorry regesiter for one of our events to unlock the app!
           </p>
           <Link className="start_here" to="/">
             Click Me

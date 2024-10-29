@@ -127,23 +127,17 @@ const Chat = () => {
           </div>
           <div className="chat-input-container">
             <Input.TextArea
-              rows={5}
+              rows={2}
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
             />
-<div className="chat-actions">
-
-<Button >
+            <Button type="primary" onClick={sendMessage}>
               Share Contact
             </Button>
             <Button type="primary" onClick={sendMessage}>
               Send
             </Button>
-</div>
-
-         
-          
           </div>
         </div>
       </Modal>
