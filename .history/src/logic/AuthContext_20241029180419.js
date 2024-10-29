@@ -341,8 +341,6 @@ const AuthProvider = ({ children }) => {
       value={{
         checkout_status,
         chatRooms,
-        notifications,
-        addNotification,
         chatRequests,
         acceptRequest,
         declineRequest,

@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useCallback, useContext } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import axios, { all } from 'axios';
 
 // Create a context for authentication
@@ -23,7 +23,6 @@ const AuthProvider = ({ children }) => {
   const [chatRooms, setChatRooms] = useState([]); // Holds chat rooms
   const [chatRequests, setChatRequests] = useState([]); 
   const [friendsList, setFriendsList] = useState([]);
-  const [notifications, setNotifications] = useState([]);
 
   // Load user from localStorage if available when the app starts
   useEffect(() => {
@@ -329,20 +328,16 @@ const AuthProvider = ({ children }) => {
       console.error('Error fetching chat rooms:', error);
     }
   };
-
-
-  const addNotification = (notification) => {
-    setNotifications((prev) => [...prev, notification]);
+  const useNotifications = () => {
+    return useContext(NotificationContext);
   };
-
+      
    
   return (
     <AuthContext.Provider 
       value={{
         checkout_status,
         chatRooms,
-        notifications,
-        addNotification,
         chatRequests,
         acceptRequest,
         declineRequest,

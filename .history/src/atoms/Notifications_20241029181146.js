@@ -2,7 +2,7 @@
 import React from 'react';
 import { AuthContext } from "../logic/AuthContext";
 import { Tooltip } from 'antd'; // Assuming you're using Ant Design
-import notificationSound from '../assets/sound/ss.mp3';
+import notificationSound from '../assets/sound';
 
 
 const Notification = () => {

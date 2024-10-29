@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useCallback, useContext } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import axios, { all } from 'axios';
 
 // Create a context for authentication
@@ -23,7 +23,6 @@ const AuthProvider = ({ children }) => {
   const [chatRooms, setChatRooms] = useState([]); // Holds chat rooms
   const [chatRequests, setChatRequests] = useState([]); 
   const [friendsList, setFriendsList] = useState([]);
-  const [notifications, setNotifications] = useState([]);
 
   // Load user from localStorage if available when the app starts
   useEffect(() => {
@@ -71,6 +70,8 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+
+  
   const friendRequests = async () => {
     try {
       const response = await axios.get(`https://skip-api-1gup.onrender.com/my_chat_reqs/${user.userEmail}`);
@@ -184,6 +185,12 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   };
+  
+  // const userEventID = events.find(eventObj => 
+  //   eventObj.attendees.some(attendee => attendee.userEmail === user.userEmail),
+  // );
+  
+  // console.log("user current  event id", user);
 
 
   const fetchPosts = useCallback(async (userId, eventId) => {
@@ -320,6 +327,16 @@ const AuthProvider = ({ children }) => {
     return chatRooms.some((room) => room.participants.includes(userEmail));
   };
 
+
+  // const fetchChatRequests = async () => {
+  //   try {
+  //     const response = await axios.get(`https://skip-api-1gup.onrender.com/my_chat_reqs/${user.userEmail}`);
+  //     setChatRequests(response.data);
+  //   } catch (error) {
+  //     console.error('Error fetching chat requests:', error);
+  //   }
+  // };
+
   
   const fetchChatRooms = async () => {
     try {
@@ -331,18 +348,27 @@ const AuthProvider = ({ children }) => {
   };
 
 
-  const addNotification = (notification) => {
-    setNotifications((prev) => [...prev, notification]);
-  };
+  //get songle room
+  const fetchSingleRoom = async()=>{
+    try {
+      const response = await axios.get(`https://skip-api-1gup.onrender.com/chat_rooms/roomId`);
+      console.log("singleroom",response.data); // This will now set only the rooms relevant to the user
+    } catch (error) {
+      console.error('Error fetching chat rooms:', error);
+    }
+  }
 
+
+
+  // console.log("all events: ", events)
+
+      
    
   return (
     <AuthContext.Provider 
       value={{
         checkout_status,
         chatRooms,
-        notifications,
-        addNotification,
         chatRequests,
         acceptRequest,
         declineRequest,

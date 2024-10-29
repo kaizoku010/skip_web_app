@@ -4,11 +4,9 @@ import "./chat.css";
 import { AuthContext } from "../logic/AuthContext";
 import axios from "axios";
 import TestImg from "../assets/pp.jpg";
-import notificationSound from '../assets/sound/ss.mp3';
-
 
 const Chat = () => {
-  const { addNotification ,all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
+  const { ,all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
   const [chatMembers, setChatMembers] = useState();
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -18,34 +16,11 @@ const Chat = () => {
   const [shareContactCount, setShareContactCount] = useState(0); // Track share contact button clicks
   const [messageCount, setMessageCount] = useState(0); // Track messages sent
   const [userEvent_, setUserEvent] = useState();
-  const [notifications, setNotifications] = useState([]); // State for notifications
 
   // Find user events and include message count and shared contact count
   const userEvents = events.find((event) =>
     event.attendees.some((attendee) => attendee.userEmail === user.userEmail)
   );
-
-
-
-  useEffect(() => {
-    if (Notification.permission !== "granted") {
-      Notification.requestPermission();
-    }
-  }, []);
-
-
-  const showBrowserNotification = (title, body) => {
-    if (Notification.permission === "granted") {
-      new Notification(title, { body });
-      playNotificationSound(); // Play sound as well
-    }
-  };
-
-  const playNotificationSound = () => {
-    const audio = new Audio(notificationSound);
-    audio.play().catch((error) => console.error("Error playing sound:", error));
-  };
-  
 
   useEffect(() => {
     if (userEvents) {
@@ -102,15 +77,10 @@ const Chat = () => {
       setNewMessage("");
       setMessageCount((prevCount) => prevCount + 1); // Increment message count
 
-      // notification.success({
-      //   message: 'Message Sent',
-      //   description: 'Your message has been successfully sent.',
-      // });
-
-      showBrowserNotification('Message Sent', 'Your message has been successfully sent.');
-
-      playNotificationSound(); // Play sound on success
-
+      notification.success({
+        message: 'Message Sent',
+        description: 'Your message has been successfully sent.',
+      });
     } catch (error) {
       console.error("Error sending message:", error);
       notification.error({
@@ -147,8 +117,6 @@ const Chat = () => {
         message: 'Contact Shared',
         description: 'Contact details have been successfully shared.',
       });
-      playNotificationSound(); // Play sound on success
-
     } catch (error) {
       console.error("Error sharing contact:", error);
       notification.error({

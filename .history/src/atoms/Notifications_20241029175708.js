@@ -1,12 +1,10 @@
 // Notification.js
 import React from 'react';
-import { AuthContext } from "../logic/AuthContext";
+import { useNotifications } from './NotificationContext';
 import { Tooltip } from 'antd'; // Assuming you're using Ant Design
-import notificationSound from '../assets/sound/ss.mp3';
-
 
 const Notification = () => {
-  const { notifications } = AuthContext();
+  const { notifications } = useNotifications();
 
   return (
     <Tooltip title={

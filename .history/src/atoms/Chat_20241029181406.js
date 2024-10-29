@@ -18,7 +18,6 @@ const Chat = () => {
   const [shareContactCount, setShareContactCount] = useState(0); // Track share contact button clicks
   const [messageCount, setMessageCount] = useState(0); // Track messages sent
   const [userEvent_, setUserEvent] = useState();
-  const [notifications, setNotifications] = useState([]); // State for notifications
 
   // Find user events and include message count and shared contact count
   const userEvents = events.find((event) =>
@@ -26,20 +25,6 @@ const Chat = () => {
   );
 
 
-
-  useEffect(() => {
-    if (Notification.permission !== "granted") {
-      Notification.requestPermission();
-    }
-  }, []);
-
-
-  const showBrowserNotification = (title, body) => {
-    if (Notification.permission === "granted") {
-      new Notification(title, { body });
-      playNotificationSound(); // Play sound as well
-    }
-  };
 
   const playNotificationSound = () => {
     const audio = new Audio(notificationSound);
@@ -102,15 +87,10 @@ const Chat = () => {
       setNewMessage("");
       setMessageCount((prevCount) => prevCount + 1); // Increment message count
 
-      // notification.success({
-      //   message: 'Message Sent',
-      //   description: 'Your message has been successfully sent.',
-      // });
-
-      showBrowserNotification('Message Sent', 'Your message has been successfully sent.');
-
-      playNotificationSound(); // Play sound on success
-
+      notification.success({
+        message: 'Message Sent',
+        description: 'Your message has been successfully sent.',
+      });
     } catch (error) {
       console.error("Error sending message:", error);
       notification.error({
@@ -147,8 +127,6 @@ const Chat = () => {
         message: 'Contact Shared',
         description: 'Contact details have been successfully shared.',
       });
-      playNotificationSound(); // Play sound on success
-
     } catch (error) {
       console.error("Error sharing contact:", error);
       notification.error({

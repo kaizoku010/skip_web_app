@@ -331,18 +331,12 @@ const AuthProvider = ({ children }) => {
   };
 
 
-  const addNotification = (notification) => {
-    setNotifications((prev) => [...prev, notification]);
-  };
-
    
   return (
     <AuthContext.Provider 
       value={{
         checkout_status,
         chatRooms,
-        notifications,
-        addNotification,
         chatRequests,
         acceptRequest,
         declineRequest,

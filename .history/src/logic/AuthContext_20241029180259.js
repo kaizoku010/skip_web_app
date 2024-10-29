@@ -23,7 +23,6 @@ const AuthProvider = ({ children }) => {
   const [chatRooms, setChatRooms] = useState([]); // Holds chat rooms
   const [chatRequests, setChatRequests] = useState([]); 
   const [friendsList, setFriendsList] = useState([]);
-  const [notifications, setNotifications] = useState([]);
 
   // Load user from localStorage if available when the app starts
   useEffect(() => {
@@ -330,19 +329,16 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
-  const addNotification = (notification) => {
-    setNotifications((prev) => [...prev, notification]);
+  const useNotifications = () => {
+    return useContext(AuthContext);
   };
-
+      
    
   return (
     <AuthContext.Provider 
       value={{
         checkout_status,
         chatRooms,
-        notifications,
-        addNotification,
         chatRequests,
         acceptRequest,
         declineRequest,

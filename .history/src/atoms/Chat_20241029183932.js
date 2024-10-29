@@ -18,7 +18,6 @@ const Chat = () => {
   const [shareContactCount, setShareContactCount] = useState(0); // Track share contact button clicks
   const [messageCount, setMessageCount] = useState(0); // Track messages sent
   const [userEvent_, setUserEvent] = useState();
-  const [notifications, setNotifications] = useState([]); // State for notifications
 
   // Find user events and include message count and shared contact count
   const userEvents = events.find((event) =>
