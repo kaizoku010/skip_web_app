@@ -2,7 +2,7 @@ import React from "react";
 import "./recent.css";
 import { Typography, Text } from "antd";
 import EventImage from "../assets/jay.jpg";
-import EventImage2 from "../assets/zulu.JPG";
+import EventImage2 from "../assets/zulu.jpg";
 import EventImage3 from "../assets/ate.jpg";
 
 
@@ -11,10 +11,6 @@ function Recents() {
   const { Title } = Typography;
   const sampleText = "In the process of internal desktop applications development, many different design specs and implementations would be involved, In the process of internal desktop applications development, many different design specs and implementations would be involved"
 
-  const openLink2 = () => {
-    window.open("https://moxie5agency.com/introducing-skp-your-gateway-to-meaningful-connections-2/", "_blank");
-  };
-
   return (
     <div className="recents">
       <div className="recents_title">
@@ -22,7 +18,7 @@ function Recents() {
         <p className="our_recent_desc">{"Imagine walking into a conference, skipping the long registration lines, and instantly connecting with like-minded professionals—all with just a tap on your phone. Sounds like a dream? Welcome to Sk!p, where we make networking a breeze!"}</p>
       </div>
       <div className="recent_event_data">
-        <img src={EventImage} alt="Moxie 5 Director/CEO" className="recent_img" />
+        <img src={EventImage} alt="moxie 5 Director/CEO" className="recent_img" />
         <div className="recent_text_holder">
         <p className="rth_desc">{"With Sk!p, you can wave goodbye to awkward introductions and say hello to meaningful connections. Our app is like your personal networking assistant, matching you with the right people and providing ice-breakers to get the conversation flowing. No more fumbling for business cards—Sk!p’s got you covered with virtual ones!"}</p>
         <p className="rth_desc">{"Need a front-row seat? No problem! Sk!p’s venue diagramming tool lets you pre-book your seat, so you’re always in the perfect spot. Whether you want to be close to the action or need a quick escape route, you choose where you sit. This means less stress and more focus on making those valuable connections."}</p>
@@ -49,7 +45,7 @@ function Recents() {
         </div>
       </div>
       <div className="readMore_section">
-<button onClick={openLink2} className="readmore_btn">Read More</button>
+<button className="readmore_btn">Read More</button>
 
       </div>
     </div>

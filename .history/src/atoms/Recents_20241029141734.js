@@ -12,7 +12,7 @@ function Recents() {
   const sampleText = "In the process of internal desktop applications development, many different design specs and implementations would be involved, In the process of internal desktop applications development, many different design specs and implementations would be involved"
 
   const openLink2 = () => {
-    window.open("https://moxie5agency.com/introducing-skp-your-gateway-to-meaningful-connections-2/", "_blank");
+    window.open("/register", "_blanck");
   };
 
   return (
@@ -49,7 +49,7 @@ function Recents() {
         </div>
       </div>
       <div className="readMore_section">
-<button onClick={openLink2} className="readmore_btn">Read More</button>
+<button className="readmore_btn">Read More</button>
 
       </div>
     </div>

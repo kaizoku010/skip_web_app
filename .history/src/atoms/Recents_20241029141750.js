@@ -49,7 +49,7 @@ function Recents() {
         </div>
       </div>
       <div className="readMore_section">
-<button onClick={openLink2} className="readmore_btn">Read More</button>
+<button className="readmore_btn">Read More</button>
 
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import "./recent.css";
 import { Typography, Text } from "antd";
 import EventImage from "../assets/jay.jpg";
-import EventImage2 from "../assets/zulu.JPG";
+import EventImage2 from "../assets/zulu.jpg";
 import EventImage3 from "../assets/ate.jpg";
 
 
@@ -10,10 +10,6 @@ import EventImage3 from "../assets/ate.jpg";
 function Recents() {
   const { Title } = Typography;
   const sampleText = "In the process of internal desktop applications development, many different design specs and implementations would be involved, In the process of internal desktop applications development, many different design specs and implementations would be involved"
-
-  const openLink2 = () => {
-    window.open("https://moxie5agency.com/introducing-skp-your-gateway-to-meaningful-connections-2/", "_blank");
-  };
 
   return (
     <div className="recents">
@@ -49,7 +45,7 @@ function Recents() {
         </div>
       </div>
       <div className="readMore_section">
-<button onClick={openLink2} className="readmore_btn">Read More</button>
+<button className="readmore_btn">Read More</button>
 
       </div>
     </div>
