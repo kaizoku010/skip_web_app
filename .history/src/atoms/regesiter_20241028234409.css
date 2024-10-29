@@ -1,0 +1,107 @@
+.register_page{
+    background-position: center;
+    background-size: cover;
+    background-image: url("../assets/eyes.png") !important;
+}
+
+.evt-form{
+    height: 100vh;
+    display: flex; /* Use flexbox for layout */
+
+}
+
+
+.login-btn {
+    background-color: black;
+    padding: .5rem;
+    color: white !important;
+    border-radius: 50px;
+    width: 30% !important;
+    display: flex;
+    place-content: center;
+  }
+
+
+  .login-btn:hover{
+    background-color: rgb(52, 51, 51);
+    color: white !important;
+  }
+
+
+  .form-side {
+    flex: 1; /* Take remaining space */
+    overflow-y: auto; /* Enable scrolling for the form side */
+  }
+
+
+
+  .backhme2{
+    color:w;
+    text-decoration: none;
+    background-color: white;
+    padding: .5rem;
+    font-size: smaller;
+    display: block;
+    border-radius: 30px;
+  }
+
+  .backhme{
+    display: none;
+  }
+
+.bbc{
+    color: white !important;
+}
+
+.progress-bar{
+    margin-top: 2%;
+}
+
+.backhme{
+    color: rgb(26, 26, 26);
+}
+
+.backhme:hover{
+    color: gray;
+}
+
+.consent_text{
+    margin-top: 5%;
+    color: rgb(59, 59, 216);
+    font-weight: 600;
+    
+}
+
+@media only screen and (max-width: 600px) {
+
+    .create_mobile{
+        margin-top: 10%;
+        padding-left: 0rem !important; 
+    }
+
+    .flexMeForm {
+        display: flex;
+        gap: 5px !important;
+        text-align: center;
+    }
+
+    .bbc{
+        color: white !important;
+        align-items: center;
+        width: 100%;
+        align-self: center;
+     
+
+    }
+
+}
+
+
+.qoutes_layout{
+    /* background-color: red; */
+    height: fit-content;
+    padding-bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+}
