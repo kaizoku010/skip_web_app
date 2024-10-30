@@ -14,16 +14,6 @@
     margin-bottom: 10px;
 }
 
-.sendtext{
-    margin-bottom: .5rem;
-}
-
-.chat-input{
-border-radius: 7px;
-margin-top: .5rem;
-margin-bottom: 1rem;
-}
-
 .chat-room-item:hover{
     background-color: rgba(128, 128, 128, 0.092);
     border-radius: 7px;
@@ -31,10 +21,10 @@ margin-bottom: 1rem;
 }
 
 
-/* .chat-delete-button{
-    background-color: white;
-    color: black;
-} */
+.chat-delete-button{
+    background-color: red;
+    color: white;
+}
 
 .chat-preview-content> p{
     margin-bottom: 0px;

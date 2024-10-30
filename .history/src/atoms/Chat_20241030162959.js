@@ -288,7 +288,6 @@ onClick={() => deleteMessage(msg.messageId)}
 
             <Button
               type="primary"
-              className="sendtext"
               onClick={sendMessage}
               loading={loading}
             >

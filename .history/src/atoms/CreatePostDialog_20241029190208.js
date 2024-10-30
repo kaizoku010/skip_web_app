@@ -1,24 +1,29 @@
 import React, { useState } from "react";
 import { Modal, Input, Button, Progress } from "antd";
-import { VideoCameraFilled, FileFilled, CloseOutlined } from "@ant-design/icons";
-import axios from "axios";
+import {
+  VideoCameraFilled,
+  FileFilled,
+  CloseOutlined,
+} from "@ant-design/icons";
 import "./userContent.css";
+import axios from "axios";
 import "./pop_up_post.css";
 
 const CreatePostDialog = ({ isModalVisible, handleCancel, user, eventId }) => {
   const [postContent, setPostContent] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
-  const [mediaFile, setMediaFile] = useState(null);
-  const [mediaPreview, setMediaPreview] = useState(null);
+  const [mediaFile, setMediaFile] = useState(null); // File state for media
+  const [mediaPreview, setMediaPreview] = useState(null); // State for media preview
 
+  // Handle post submission and file upload logic
   const handlePostSubmit = async () => {
     if (!postContent) {
       alert("Post content is required!");
       return;
     }
 
-    setIsUploading(true);
+    setIsUploading(true); // Show the progress bar
 
     const formData = new FormData();
     formData.append("content", postContent);
@@ -39,32 +44,35 @@ const CreatePostDialog = ({ isModalVisible, handleCancel, user, eventId }) => {
             const percentCompleted = Math.round(
               (progressEvent.loaded * 100) / progressEvent.total
             );
-            setUploadProgress(percentCompleted);
+            setUploadProgress(percentCompleted); // Update the progress
           },
         }
       );
 
       console.log("Post created successfully:", response.data);
-      setPostContent("");
-      setMediaFile(null);
-      setMediaPreview(null);
+      setPostContent(""); // Clear the input
+      setMediaFile(null); // Clear the media file state
+      setMediaPreview(null); // Clear the media preview state
     } catch (error) {
-      console.error("Error submitting post", error.response?.data || error.message);
+      console.error(
+        "Error submitting post",
+        error.response?.data || error.message
+      );
     } finally {
-      setIsUploading(false);
-      setUploadProgress(0);
-      handleCancel();
+      setIsUploading(false); // Hide the progress bar when done
+      setUploadProgress(0); // Reset progress
+      handleCancel(); // Close the modal
     }
   };
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setMediaFile(file);
-
+    const file = e.target.files[0]; // Get the selected file
+    setMediaFile(file); // Set selected file
+    // Create a preview URL for the selected file
     if (file) {
       setMediaPreview(URL.createObjectURL(file)); // Create object URL for preview
     } else {
-      setMediaPreview(null);
+      setMediaPreview(null); // Reset media preview if no file selected
     }
   };
 
@@ -76,6 +84,7 @@ const CreatePostDialog = ({ isModalVisible, handleCancel, user, eventId }) => {
       footer={null}
       closeIcon={<CloseOutlined />}
     >
+      {/* Post content input */}
       <Input.TextArea
         rows={4}
         style={{ marginBottom: "1rem" }}
@@ -84,19 +93,22 @@ const CreatePostDialog = ({ isModalVisible, handleCancel, user, eventId }) => {
         onChange={(e) => setPostContent(e.target.value)}
       />
 
+      {/* Media attachment icons */}
       <div className="create-post-actions">
         <label>
+          <Button icon={<VideoCameraFilled />} style={{ width: "100%" }}>
             Photo/Video
             <input
               type="file"
-              accept="image/*,video/*" // Ensure you can select images and videos
               onChange={handleFileChange}
               style={{ display: "none" }} // Hide the input
             />
+          </Button>
         </label>
         <Button icon={<FileFilled />}>Document</Button>
       </div>
 
+      {/* Media Preview */}
       {mediaPreview && (
         <div className="media-preview">
           <h4>Preview:</h4>
@@ -111,6 +123,7 @@ const CreatePostDialog = ({ isModalVisible, handleCancel, user, eventId }) => {
         </div>
       )}
 
+      {/* Submit and Cancel buttons */}
       <div className="create-post-footer">
         <Button type="primary" onClick={handlePostSubmit}>
           Post
@@ -118,6 +131,7 @@ const CreatePostDialog = ({ isModalVisible, handleCancel, user, eventId }) => {
         <Button onClick={handleCancel}>Cancel</Button>
       </div>
 
+      {/* Progress bar displayed only when uploading */}
       {isUploading && (
         <div className="upload-progress">
           <Progress

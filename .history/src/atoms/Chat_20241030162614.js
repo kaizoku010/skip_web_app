@@ -1,11 +1,10 @@
-import { Avatar, Collapse, Modal, Input, Button, Popover , notification } from "antd";
+import { Avatar, Collapse, Modal, Input, Button, Progress, notification } from "antd";
 import { useContext, useState, useEffect } from "react";
 import "./chat.css";
 import { AuthContext } from "../logic/AuthContext";
 import axios from "axios";
 import TestImg from "../assets/pp.jpg";
 import notificationSound from '../assets/sound/ss.mp3';
-import {  DeleteFilled } from "@ant-design/icons";
 
 const Chat = () => {
   const { addNotification, all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
@@ -260,10 +259,10 @@ const Chat = () => {
                   <p>{msg.messageContent}</p>
                   <small>{formatDate(msg.timestamp)}</small>
                   {msg.senderId === user.userId && (
-      
+               
 
 <DeleteFilled
-color="white"
+color="red"
 className="delete_btn"
 onClick={() => deleteMessage(msg.messageId)}
 
@@ -275,9 +274,7 @@ onClick={() => deleteMessage(msg.messageId)}
           )}
 
           <div className="chat-input-container">
-            <textarea
-            rows={5}
-            className="chat-input"
+            <Input
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
@@ -288,7 +285,6 @@ onClick={() => deleteMessage(msg.messageId)}
 
             <Button
               type="primary"
-              className="sendtext"
               onClick={sendMessage}
               loading={loading}
             >

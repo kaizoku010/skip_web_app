@@ -19,7 +19,15 @@ const Chat = () => {
   const [messageCount, setMessageCount] = useState(0);
   const [userEvent_, setUserEvent] = useState();
   const [notifications, setNotifications] = useState([]);
+  const [open, setOpen] = useState(false);
 
+  const hide = () => {
+    setOpen(false);
+  };
+
+  const handleOpenChange = (newOpen: boolean) => {
+    setOpen(newOpen);
+  };
   const userEvents = events.find((event) =>
     event.attendees.some((attendee) => attendee.userEmail === user.userEmail)
   );
@@ -252,6 +260,14 @@ const Chat = () => {
           ) : (
             <div className="chat-messages">
               {messages.map((msg, idx) => (
+ <Popover
+ content={<a onClick={hide}>Close</a>}
+ title="Title"
+ trigger="click"
+placement="left" 
+ open={open}
+ onOpenChange={handleOpenChange}
+>
                 <div
                   key={idx}
                   className={`chat-message ${msg.senderId === user.userId ? "outgoing" : "incoming"}`}
@@ -263,21 +279,20 @@ const Chat = () => {
       
 
 <DeleteFilled
-color="white"
+color="red"
 className="delete_btn"
 onClick={() => deleteMessage(msg.messageId)}
 
 />
                   )}
                 </div>
+           </Popover>    
               ))}
             </div>
           )}
 
           <div className="chat-input-container">
-            <textarea
-            rows={5}
-            className="chat-input"
+            <Input
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
@@ -288,7 +303,6 @@ onClick={() => deleteMessage(msg.messageId)}
 
             <Button
               type="primary"
-              className="sendtext"
               onClick={sendMessage}
               loading={loading}
             >

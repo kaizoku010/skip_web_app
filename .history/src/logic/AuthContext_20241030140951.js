@@ -336,7 +336,30 @@ const AuthProvider = ({ children }) => {
   };
 
 
-     
+  const deleteMessage = async (messageId) => {
+    try {
+      setLoading(true); // Show loading indicator
+      await axios.delete(`https://skip-api-1gup.onrender.com/delete_message/${messageId}`);
+      
+      setMessages((prevMessages) => prevMessages.filter(msg => msg.messageId !== messageId));
+      
+      notification.success({
+        message: 'Message Deleted',
+        description: 'The message has been successfully deleted.',
+      });
+    } catch (error) {
+      console.error("Error deleting message:", error);
+      notification.error({
+        message: 'Delete Failed',
+        description: 'There was an error deleting the message.',
+      });
+    } finally {
+      setLoading(false); // Hide loading indicator
+    }
+  };
+  
+
+   
   return (
     <AuthContext.Provider 
       value={{

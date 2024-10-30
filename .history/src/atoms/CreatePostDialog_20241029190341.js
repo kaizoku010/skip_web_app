@@ -93,6 +93,7 @@ const CreatePostDialog = ({ isModalVisible, handleCancel, user, eventId }) => {
               onChange={handleFileChange}
               style={{ display: "none" }} // Hide the input
             />
+          </Button>
         </label>
         <Button icon={<FileFilled />}>Document</Button>
       </div>

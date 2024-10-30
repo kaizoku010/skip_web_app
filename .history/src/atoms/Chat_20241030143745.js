@@ -1,11 +1,10 @@
-import { Avatar, Collapse, Modal, Input, Button, Popover , notification } from "antd";
+import { Avatar, Collapse, Modal, Input, Button, Progress, notification } from "antd";
 import { useContext, useState, useEffect } from "react";
 import "./chat.css";
 import { AuthContext } from "../logic/AuthContext";
 import axios from "axios";
 import TestImg from "../assets/pp.jpg";
 import notificationSound from '../assets/sound/ss.mp3';
-import {  DeleteFilled } from "@ant-design/icons";
 
 const Chat = () => {
   const { addNotification, all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
@@ -15,11 +14,12 @@ const Chat = () => {
   const [newMessage, setNewMessage] = useState("");
   const [chatModalVisible, setChatModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [shareContactCount, setShareContactCount] = useState(0);
-  const [messageCount, setMessageCount] = useState(0);
+  const [shareContactCount, setShareContactCount] = useState(0); // Track share contact button clicks
+  const [messageCount, setMessageCount] = useState(0); // Track messages sent
   const [userEvent_, setUserEvent] = useState();
-  const [notifications, setNotifications] = useState([]);
+  const [notifications, setNotifications] = useState([]); // State for notifications
 
+  // Find user events and include message count and shared contact count
   const userEvents = events.find((event) =>
     event.attendees.some((attendee) => attendee.userEmail === user.userEmail)
   );
@@ -33,7 +33,7 @@ const Chat = () => {
   const showBrowserNotification = (title, body) => {
     if (Notification.permission === "granted") {
       new Notification(title, { body });
-      playNotificationSound();
+      playNotificationSound(); // Play sound as well
     }
   };
 
@@ -93,9 +93,11 @@ const Chat = () => {
 
       setMessages((prevMessages) => [...prevMessages, response.data.message]);
       setNewMessage("");
-      setMessageCount((prevCount) => prevCount + 1);
+      setMessageCount((prevCount) => prevCount + 1); // Increment message count
+
       showBrowserNotification('Message Sent', 'Your message has been successfully sent.');
-      playNotificationSound();
+      playNotificationSound(); // Play sound on success
+
     } catch (error) {
       console.error("Error sending message:", error);
       notification.error({
@@ -107,6 +109,7 @@ const Chat = () => {
     }
   };
 
+  // New function to share contact details
   const shareContact = async () => {
     if (!selectedRoom || selectedRoom.participants.length < 2) return;
 
@@ -125,12 +128,14 @@ const Chat = () => {
       );
 
       setMessages((prevMessages) => [...prevMessages, response.data.message]);
-      setShareContactCount((prevCount) => prevCount + 1);
+      setShareContactCount((prevCount) => prevCount + 1); // Increment share contact count
+
       notification.success({
         message: 'Contact Shared',
         description: 'Contact details have been successfully shared.',
       });
-      playNotificationSound();
+      playNotificationSound(); // Play sound on success
+
     } catch (error) {
       console.error("Error sharing contact:", error);
       notification.error({
@@ -167,10 +172,9 @@ const Chat = () => {
     );
   });
 
+  // New function for deleting messages
   const deleteMessage = async (messageId) => {
-      
     try {
-    
       setLoading(true); // Show loading indicator
       await axios.delete(`https://skip-api-1gup.onrender.com/delete_message/${messageId}`);
       
@@ -194,48 +198,46 @@ const Chat = () => {
   return (
     <div className="chat-div">
       <Collapse
-        items={[
-          {
-            key: "1",
-            label: "Sk!p Friends",
-            children: (
-              <div>
-                {uniqueChatRooms.length > 0 ? (
-                  uniqueChatRooms.map((room) => {
-                    const otherParticipants = room.participants.filter(
-                      (email) => email !== user.userEmail
-                    );
-                    return otherParticipants.map((participantEmail) => {
-                      const participantInfo = getAttendeeInfo(participantEmail);
-                      if (!participantInfo) return null;
+        items={[{
+          key: "1",
+          label: "Sk!p Friends",
+          children: (
+            <div>
+              {uniqueChatRooms.length > 0 ? (
+                uniqueChatRooms.map((room) => {
+                  const otherParticipants = room.participants.filter(
+                    (email) => email !== user.userEmail
+                  );
+                  return otherParticipants.map((participantEmail) => {
+                    const participantInfo = getAttendeeInfo(participantEmail);
+                    if (!participantInfo) return null;
 
-                      return (
-                        <div
-                          key={room.chatRoomId}
-                          className="chat-room-item"
-                          onClick={() => openChat(room)}
-                        >
-                          <Avatar
-                            className="sf-image"
-                            src={participantInfo?.userImage || TestImg}
-                          />
-                          <div className="chat-preview-content">
-                            <p className="chat-userName">
-                              <strong>{participantInfo.username || "Unknown User"}</strong>
-                            </p>
-                            <p className="chat-job">{participantInfo.job}</p>
-                          </div>
+                    return (
+                      <div
+                        key={room.chatRoomId}
+                        className="chat-room-item"
+                        onClick={() => openChat(room)}
+                      >
+                        <Avatar
+                          className="sf-image"
+                          src={participantInfo?.userImage || TestImg}
+                        />
+                        <div className="chat-preview-content">
+                          <p className="chat-userName">
+                            <strong>{participantInfo.username || "Unknown User"}</strong>
+                          </p>
+                          <p className="chat-job">{participantInfo.job}</p>
                         </div>
-                      );
-                    });
-                  })
-                ) : (
-                  <p>No Friends Yet :'(</p>
-                )}
-              </div>
-            ),
-          },
-        ]}
+                      </div>
+                    );
+                  });
+                })
+              ) : (
+                <p>No Friends Yet :'(</p>
+              )}
+            </div>
+          ),
+        }]}
       ></Collapse>
 
       {/* Chat Modal */}
@@ -253,55 +255,39 @@ const Chat = () => {
             <div className="chat-messages">
               {messages.map((msg, idx) => (
                 <div
-                  key={idx}
-                  className={`chat-message ${msg.senderId === user.userId ? "outgoing" : "incoming"}`}
-                  style={msg.messageContent.includes("Contact Info") ? { color: "white", backgroundColor:"#128d25" } : {}}
+                  key={msg.messageId}
+                  className="chat-message"
+                  style={{ textAlign: msg.senderId === user.userId ? "right" : "left" }}
                 >
-                  <p>{msg.messageContent}</p>
-                  <small>{formatDate(msg.timestamp)}</small>
+                  <div className="message-content">
+                    <span>{msg.messageContent}</span>
+                    <span className="message-timestamp">{formatDate(msg.timestamp)}</span>
+                  </div>
                   {msg.senderId === user.userId && (
-      
-
-<DeleteFilled
-color="white"
-className="delete_btn"
-onClick={() => deleteMessage(msg.messageId)}
-
-/>
+                    <Button type="link" danger onClick={() => deleteMessage(msg.messageId)}>
+                      Delete
+                    </Button>
                   )}
                 </div>
               ))}
             </div>
           )}
-
-          <div className="chat-input-container">
-            <textarea
-            rows={5}
-            className="chat-input"
-              value={newMessage}
-              onChange={(e) => setNewMessage(e.target.value)}
-              placeholder="Type your message..."
-              onPressEnter={sendMessage}
-            />
-
-
-
-            <Button
-              type="primary"
-              className="sendtext"
-              onClick={sendMessage}
-              loading={loading}
-            >
-              Send
-            </Button>
-            <Button
-              type="default"
-              onClick={shareContact}
-              loading={loading}
-            >
-              Share Contact
-            </Button>
-          </div>
+          <Input.TextArea
+            rows={4}
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+            onPressEnter={(e) => {
+              e.preventDefault();
+              sendMessage();
+            }}
+            placeholder="Type your message..."
+          />
+          <Button onClick={sendMessage} loading={loading}>
+            Send
+          </Button>
+          <Button onClick={shareContact} loading={loading}>
+            Share Contact
+          </Button>
         </div>
       </Modal>
     </div>

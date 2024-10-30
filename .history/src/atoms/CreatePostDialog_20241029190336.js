@@ -86,6 +86,7 @@ const CreatePostDialog = ({ isModalVisible, handleCancel, user, eventId }) => {
 
       <div className="create-post-actions">
         <label>
+          <Button icon={<VideoCameraFilled />} style={{ width: "100%" }}>
             Photo/Video
             <input
               type="file"
@@ -93,6 +94,7 @@ const CreatePostDialog = ({ isModalVisible, handleCancel, user, eventId }) => {
               onChange={handleFileChange}
               style={{ display: "none" }} // Hide the input
             />
+          </Button>
         </label>
         <Button icon={<FileFilled />}>Document</Button>
       </div>

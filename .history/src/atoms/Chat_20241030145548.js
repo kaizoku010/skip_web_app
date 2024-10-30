@@ -1,11 +1,10 @@
-import { Avatar, Collapse, Modal, Input, Button, Popover , notification } from "antd";
+import { Avatar, Collapse, Modal, Input, Button, Progress, notification } from "antd";
 import { useContext, useState, useEffect } from "react";
 import "./chat.css";
 import { AuthContext } from "../logic/AuthContext";
 import axios from "axios";
 import TestImg from "../assets/pp.jpg";
 import notificationSound from '../assets/sound/ss.mp3';
-import {  DeleteFilled } from "@ant-design/icons";
 
 const Chat = () => {
   const { addNotification, all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
@@ -168,7 +167,9 @@ const Chat = () => {
   });
 
   const deleteMessage = async (messageId) => {
-      
+    
+    console.log()
+    
     try {
     
       setLoading(true); // Show loading indicator
@@ -260,14 +261,13 @@ const Chat = () => {
                   <p>{msg.messageContent}</p>
                   <small>{formatDate(msg.timestamp)}</small>
                   {msg.senderId === user.userId && (
-      
-
-<DeleteFilled
-color="white"
-className="delete_btn"
-onClick={() => deleteMessage(msg.messageId)}
-
-/>
+                    <Button
+                      type="text"
+                      onClick={() => deleteMessage(msg.messageId)}
+                      className="chat-delete-button"
+                    >
+                      Delete
+                    </Button>
                   )}
                 </div>
               ))}
@@ -275,9 +275,7 @@ onClick={() => deleteMessage(msg.messageId)}
           )}
 
           <div className="chat-input-container">
-            <textarea
-            rows={5}
-            className="chat-input"
+            <Input
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
@@ -288,7 +286,6 @@ onClick={() => deleteMessage(msg.messageId)}
 
             <Button
               type="primary"
-              className="sendtext"
               onClick={sendMessage}
               loading={loading}
             >

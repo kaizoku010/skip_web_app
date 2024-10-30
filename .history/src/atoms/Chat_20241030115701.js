@@ -1,28 +1,31 @@
-import { Avatar, Collapse, Modal, Input, Button, Popover , notification } from "antd";
+import { Avatar, Collapse, Modal, Input, Button, Progress, notification } from "antd";
 import { useContext, useState, useEffect } from "react";
 import "./chat.css";
 import { AuthContext } from "../logic/AuthContext";
 import axios from "axios";
 import TestImg from "../assets/pp.jpg";
 import notificationSound from '../assets/sound/ss.mp3';
-import {  DeleteFilled } from "@ant-design/icons";
+
 
 const Chat = () => {
-  const { addNotification, all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
+  const { addNotification ,all_attended = [], chatRooms = [], user, events } = useContext(AuthContext);
   const [chatMembers, setChatMembers] = useState();
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const [chatModalVisible, setChatModalVisible] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [shareContactCount, setShareContactCount] = useState(0);
-  const [messageCount, setMessageCount] = useState(0);
+  const [shareContactCount, setShareContactCount] = useState(0); // Track share contact button clicks
+  const [messageCount, setMessageCount] = useState(0); // Track messages sent
   const [userEvent_, setUserEvent] = useState();
-  const [notifications, setNotifications] = useState([]);
+  const [notifications, setNotifications] = useState([]); // State for notifications
 
+  // Find user events and include message count and shared contact count
   const userEvents = events.find((event) =>
     event.attendees.some((attendee) => attendee.userEmail === user.userEmail)
   );
+
+
 
   useEffect(() => {
     if (Notification.permission !== "granted") {
@@ -30,10 +33,11 @@ const Chat = () => {
     }
   }, []);
 
+
   const showBrowserNotification = (title, body) => {
     if (Notification.permission === "granted") {
       new Notification(title, { body });
-      playNotificationSound();
+      playNotificationSound(); // Play sound as well
     }
   };
 
@@ -41,6 +45,7 @@ const Chat = () => {
     const audio = new Audio(notificationSound);
     audio.play().catch((error) => console.error("Error playing sound:", error));
   };
+  
 
   useEffect(() => {
     if (userEvents) {
@@ -51,6 +56,8 @@ const Chat = () => {
       });
     }
   }, [messageCount, shareContactCount, userEvents]);
+
+  // console.log("user event: ", userEvent_);
 
   const getAttendeeInfo = (email) => {
     return all_attended?.find((attendee) => attendee.userEmail === email);
@@ -93,9 +100,17 @@ const Chat = () => {
 
       setMessages((prevMessages) => [...prevMessages, response.data.message]);
       setNewMessage("");
-      setMessageCount((prevCount) => prevCount + 1);
+      setMessageCount((prevCount) => prevCount + 1); // Increment message count
+
+      // notification.success({
+      //   message: 'Message Sent',
+      //   description: 'Your message has been successfully sent.',
+      // });
+
       showBrowserNotification('Message Sent', 'Your message has been successfully sent.');
-      playNotificationSound();
+
+      playNotificationSound(); // Play sound on success
+
     } catch (error) {
       console.error("Error sending message:", error);
       notification.error({
@@ -107,12 +122,13 @@ const Chat = () => {
     }
   };
 
+  // New function to share contact details
   const shareContact = async () => {
     if (!selectedRoom || selectedRoom.participants.length < 2) return;
 
     const contactEmail = selectedRoom.participants[0];
     const contactInfo = getAttendeeInfo(contactEmail);
-    const contactMessage = `Contact Info: ${contactInfo.username}, Email: ${contactInfo.userEmail}, Phone Number ${contactInfo.contact}`;
+    const contactMessage = `Contact Info: ${contactInfo.username}, Email: ${contactInfo.userEmail}, Phone Number `;
 
     try {
       setLoading(true);
@@ -125,12 +141,14 @@ const Chat = () => {
       );
 
       setMessages((prevMessages) => [...prevMessages, response.data.message]);
-      setShareContactCount((prevCount) => prevCount + 1);
+      setShareContactCount((prevCount) => prevCount + 1); // Increment share contact count
+
       notification.success({
         message: 'Contact Shared',
         description: 'Contact details have been successfully shared.',
       });
-      playNotificationSound();
+      playNotificationSound(); // Play sound on success
+
     } catch (error) {
       console.error("Error sharing contact:", error);
       notification.error({
@@ -167,29 +185,6 @@ const Chat = () => {
     );
   });
 
-  const deleteMessage = async (messageId) => {
-      
-    try {
-    
-      setLoading(true); // Show loading indicator
-      await axios.delete(`https://skip-api-1gup.onrender.com/delete_message/${messageId}`);
-      
-      setMessages((prevMessages) => prevMessages.filter(msg => msg.messageId !== messageId));
-      
-      notification.success({
-        message: 'Message Deleted',
-        description: 'The message has been successfully deleted.',
-      });
-    } catch (error) {
-      console.error("Error deleting message:", error);
-      notification.error({
-        message: 'Delete Failed',
-        description: 'There was an error deleting the message.',
-      });
-    } finally {
-      setLoading(false); // Hide loading indicator
-    }
-  };
 
   return (
     <div className="chat-div">
@@ -240,7 +235,7 @@ const Chat = () => {
 
       {/* Chat Modal */}
       <Modal
-        title={`Chat with ${selectedRoom ? selectedRoom.participants[1] : ""}`}
+        title={`Chat with ${selectedRoom ? selectedRoom.participants[0] : ""}`}
         open={chatModalVisible}
         onCancel={() => setChatModalVisible(false)}
         footer={null}
@@ -255,52 +250,30 @@ const Chat = () => {
                 <div
                   key={idx}
                   className={`chat-message ${msg.senderId === user.userId ? "outgoing" : "incoming"}`}
-                  style={msg.messageContent.includes("Contact Info") ? { color: "white", backgroundColor:"#128d25" } : {}}
+                  style={msg.messageContent.includes("Contact Info") ? { color: "white", backgroundColor:"#128d25" } : {}} // Unique color for contact messages
                 >
                   <p>{msg.messageContent}</p>
-                  <small>{formatDate(msg.timestamp)}</small>
-                  {msg.senderId === user.userId && (
-      
-
-<DeleteFilled
-color="white"
-className="delete_btn"
-onClick={() => deleteMessage(msg.messageId)}
-
-/>
-                  )}
-                </div>
+                  <small>{formatDate(msg.timestamp)}</small> {/* Format the date here */}
+                  </div>
               ))}
             </div>
           )}
 
+          {loading && <Progress percent={100} showInfo={false} />}
+
           <div className="chat-input-container">
-            <textarea
-            rows={5}
-            className="chat-input"
+            <Input.TextArea
+              rows={4}
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
-              onPressEnter={sendMessage}
             />
-
-
-
-            <Button
-              type="primary"
-              className="sendtext"
-              onClick={sendMessage}
-              loading={loading}
-            >
-              Send
-            </Button>
-            <Button
-              type="default"
-              onClick={shareContact}
-              loading={loading}
-            >
-              Share Contact
-            </Button>
+            <div className="chat-actions">
+              <Button onClick={shareContact}>Share Contact</Button>
+              <Button type="primary" onClick={sendMessage}>
+                Send Message
+              </Button>
+            </div>
           </div>
         </div>
       </Modal>

@@ -277,7 +277,7 @@ onClick={() => deleteMessage(msg.messageId)}
           <div className="chat-input-container">
             <textarea
             rows={5}
-            className="chat-input"
+            className=""
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
               placeholder="Type your message..."
@@ -288,7 +288,6 @@ onClick={() => deleteMessage(msg.messageId)}
 
             <Button
               type="primary"
-              className="sendtext"
               onClick={sendMessage}
               loading={loading}
             >
