@@ -107,7 +107,7 @@ align-self: flex-start;
     background: #e9e7e795;
 }
   
-  .events-list {
+  .e.events-list {
     list-style-type: none;
     display: flex;
     gap: 27px;
