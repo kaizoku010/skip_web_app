@@ -25,6 +25,7 @@ function Footer() {
 <div>
   <h5 style={{textAlign:"left", marginTop:"3rem"}}>About Moxie 5 Marketing</h5>
    <p className="fl-text">{footerText}</p>
+  <p style={{marginTop:"1rem"}} className="fl-text">{footerText2}</p>
   {/* <p className="fl-text">{footerText2}</p> */}
 
 </div>
@@ -37,8 +38,17 @@ function Footer() {
           <h4 className="ft_title">More On Us</h4>
        <div className="ft_ics_text">
  <div className="ft_ic_text">
-<p style={{marginTop:"1rem"}} className="fl-text">{footerText2}</p>
-</div>
+<SlLocationPin className="ft_ic_tf"/>
+<p className="ft_desc">Ntinda, Opposite Capital Shoppers</p>
+          </div>
+          <div className="ft_ic_text">
+<SlPhone className="ft_ic_tf"/>
+<p className="ft_desc">+256-971-151</p>
+          </div>
+          <div className="ft_ic_text">
+<SlEnvolope className="ft_ic_tf"/>
+<p className="ft_desc">sales@skipug.app</p>
+          </div>
        </div>
          
 

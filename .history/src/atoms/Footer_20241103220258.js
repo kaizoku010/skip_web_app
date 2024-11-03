@@ -25,6 +25,7 @@ function Footer() {
 <div>
   <h5 style={{textAlign:"left", marginTop:"3rem"}}>About Moxie 5 Marketing</h5>
    <p className="fl-text">{footerText}</p>
+  <p style={{marginTop:"1rem"}} className="fl-text">{footerText2}</p>
   {/* <p className="fl-text">{footerText2}</p> */}
 
 </div>

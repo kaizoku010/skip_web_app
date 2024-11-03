@@ -7,6 +7,7 @@
     background-image: url("../assets/cool.jpg");
     background-size: cover;
     height: 50rem;
+    justify-content: space-between;
 }
 
 
@@ -86,14 +87,14 @@
 .event-details{
     /* background-color: red; */
     text-align: center;
-    padding: 13rem 2rem;
+    padding: 18rem 2rem;
 
 
-  /* background: linear-gradient(
+  background: linear-gradient(
     to top,
     rgba(0, 0, 0, 10.85),
     transparent
-  ); */
+  );
 }
 
 .new-event-desc{
@@ -107,7 +108,6 @@
 
 .btn-layer{
     display: flex;
-    justify-content: center;
     margin-top: 1rem;
 }
 
@@ -155,5 +155,6 @@
         background-position: center;
         background-size: cover;
         height: 60rem;
+        justify-content: space-between;
     }
   }

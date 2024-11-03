@@ -7,6 +7,7 @@
     background-image: url("../assets/cool.jpg");
     background-size: cover;
     height: 50rem;
+    justify-content: space-between;
 }
 
 
@@ -86,19 +87,18 @@
 .event-details{
     /* background-color: red; */
     text-align: center;
-    padding: 13rem 2rem;
+    padding: 10rem 2rem;
 
 
-  /* background: linear-gradient(
+  background: linear-gradient(
     to top,
     rgba(0, 0, 0, 10.85),
     transparent
-  ); */
+  );
 }
 
 .new-event-desc{
     width: 35%;
-    display: none;
     color: rgb(180, 180, 180);
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
     font-size: 18px;
@@ -107,7 +107,6 @@
 
 .btn-layer{
     display: flex;
-    justify-content: center;
     margin-top: 1rem;
 }
 
@@ -155,5 +154,6 @@
         background-position: center;
         background-size: cover;
         height: 60rem;
+        justify-content: space-between;
     }
   }
