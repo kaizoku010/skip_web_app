@@ -48,11 +48,7 @@ function AllEventsAtom() {
       {/* Show loading or error */}
       {loading ? (
     <div className="spin-container">
-    <Alert
-        message="Events Loading"
-        description="Please Wait....."
-        type="info"
-      />
+   
     <Spin size="large" tip="Loading events..." /> {/* Ant Design Spin loader */}
    
   </div>      ) : error ? (
