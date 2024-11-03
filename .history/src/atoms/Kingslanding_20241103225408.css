@@ -63,7 +63,7 @@ font-weight: 400;
         background-repeat: no-repeat;
         -webkit-background-size: cover; /* iOS Safari fix */
         -webkit-background-position: center;
-    height: 46rem !important;
+    height: 56rem !important;
 }
     .welcome-note {
         font-size: 2rem;
