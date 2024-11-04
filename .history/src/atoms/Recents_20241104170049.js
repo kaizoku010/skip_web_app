@@ -4,7 +4,6 @@ import { Typography, Text } from "antd";
 import EventImage from "../assets/jay.jpg";
 import EventImage2 from "../assets/zulu.JPG";
 import EventImage3 from "../assets/ate.jpg";
-import FAQs from "./FAQs";
 
 
 
@@ -53,7 +52,7 @@ function Recents() {
 <button onClick={openLink2} className="readmore_btn">Read More</button>
 
       </div>
-<FAQs/>
+<
 
     </div>
   );
