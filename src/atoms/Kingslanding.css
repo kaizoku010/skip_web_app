@@ -147,7 +147,7 @@ font-weight: 400;
 
     .rsvp {
         border-radius:30px !important;
-        padding: .5rem;
+        padding: 0rem !important;
         border: 2px solid white;
         color: black !important;
         width: 100% !important;

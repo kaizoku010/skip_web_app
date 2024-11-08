@@ -51,6 +51,20 @@ font-weight: 400;
 
 
 @media only screen and (max-width: 800px) {
+.header_ic {
+    width: 30% !important;
+}
+
+
+.glass {
+    /* background-image: url("../assets/bree.jpg") !important; */
+      background-size: 100vw 100vh; /* 100% width and height of the viewport */
+        background-position: center;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover; /* iOS Safari fix */
+        -webkit-background-position: center;
+    height: 46rem !important;
+}
     .welcome-note {
         font-size: 2rem;
         line-height: 1.0714285714;
@@ -85,7 +99,8 @@ font-weight: 400;
     .btn-layer {
         display: flex;
         margin-top: 1rem;
-        flex-direction: column;
+        gap: 10px;
+        flex-direction: column !important;
     }
 
     .host {
@@ -131,29 +146,30 @@ font-weight: 400;
     }
 
     .rsvp {
-        border-radius: 11px !important;
-        padding: .5rem;
+        border-radius:30px !important;
+        padding: 0rem !important;
         border: 2px solid white;
-        color: white;
-        /* width: 8rem; */
-        /* font-size: 1rem; */
-
-        background-color: transparent;
-        text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+        color: black !important;
+        width: 100% !important;
+        background-color: white !important;
     }
 
     .host-here {
-        display: block !important;
+        display: flex !important;
         width: 100%;
+        padding: 1rem !important;
         height: -moz-fit-content;
         height: fit-content;
+    width: 100%;
+    /* margin-top: -13rem !important; */
+    align-items: center;
     }
 
 .read-more {
-    border-radius: 11px !important;
+    border-radius: 30px !important;
     border-color: transparent;
     padding: 0rem !important;
-    width: 50% !important;
+    width: 100% !important;
     margin-right: 0.5rem;
 }
 
@@ -161,8 +177,7 @@ font-weight: 400;
 .event-details {
     /* background-color: red; */
     text-align: left;
-    padding: 1rem;
-    /* margin: 1rem; */
+    padding: 4rem 2rem !important;    /* margin: 1rem; */
     border-radius: 0rem !important;
     /* background-image: linear-gradient(0deg, hsla(0, 0%, 35.29%, 0) 0%, hsla(0, 0%, 34.53%, 0.034375) 16.36%, hsla(0, 0%, 32.42%, 0.125) 33.34%, hsla(0, 0%, 29.18%, 0.253125) 50.1%, hsla(0, 0%, 24.96%, 0.4) 65.75%, hsla(0, 0%, 19.85%, 0.546875) 79.43%, hsla(0, 0%, 13.95%, 0.675) 90.28%, hsla(0, 0%, 7.32%, 0.765625) 97.43%, hsla(0, 0%, 0%, 0.8) 100%); */
     background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
@@ -175,12 +190,12 @@ font-weight: 400;
 }
 
 .ev-titled {
-    color: #fff;
+    color: #000000;
     font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 25px !important;
     font-weight: 100;
     letter-spacing: 0;
-    padding-left: 1rem !important;
+    padding-left: 2rem !important;
     line-height: 1;
     margin-bottom: 2rem !important;
     text-align: left;
