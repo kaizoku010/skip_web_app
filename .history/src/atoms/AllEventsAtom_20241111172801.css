@@ -24,6 +24,17 @@
 
 } */
 
+.spin-container{
+display: flex;
+flex-direction: column;
+gap: 7rem;
+
+}
+
+.oops{
+  width: 30%;
+}
+
 .spaceMan{
     margin-left: 10px;
 }
@@ -51,7 +62,7 @@
 } 
 .event-content-holder {
     width: 22rem !important;
-    height: 30rem;
+    height: 24rem !important;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -95,7 +106,7 @@ align-self: flex-start;
     display: flex;
     max-width: 100%;
     padding-top: 4rem;
-    border-radius: 10px;
+    border-radius: 1rem;
     padding-bottom: 3rem;
     gap: 30px;
     background: #e9e7e795;
@@ -104,6 +115,7 @@ align-self: flex-start;
   .events-list {
     list-style-type: none;
     display: flex;
+    gap: 27px;
     flex-wrap: wrap;
   }
   
@@ -168,3 +180,10 @@ align-self: flex-start;
     margin: 0 0.5rem;
   }
   
+
+  .no-events{
+    background-color: #eeeded;
+    padding: 10rem;
+    border-radius: 1rem;
+    color: #3e3e3e;
+  }

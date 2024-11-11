@@ -24,7 +24,12 @@
 
 } */
 
+.spin-container{
+display: flex;
+flex-direction: column;
+gap: 7rem;
 
+}
 
 .oops{
   width: 30%;
