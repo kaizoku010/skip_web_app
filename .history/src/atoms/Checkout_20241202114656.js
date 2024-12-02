@@ -74,7 +74,7 @@ function Checkout({ eventPrice, eventId, eventName }) {
 
   }
 
-  console.log("event type + ", eventPrice >= 2 ? `paid event at ${eventPrice}` : `free event ${eventPrice}`)
+  console.log("event type + ", eventPrice >= 200 ? `paid event at ${eventPrice}` : `free event ${eventPrice}`)
 
   return (
     <div className="checkout-container">
@@ -108,7 +108,7 @@ function Checkout({ eventPrice, eventId, eventName }) {
   </div>
 ) : (
   <form onSubmit={handleSubmit} className="checkout-form">
-    {eventPrice < 2 ? (
+    {eventPrice < 1 ? (
       <Button type="primary" className="free-event-button" onClick={freeEventSubscription}>
         Join Free Event
       </Button>

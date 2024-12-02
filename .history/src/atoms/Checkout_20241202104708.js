@@ -34,7 +34,7 @@ function Checkout({ eventPrice, eventId, eventName }) {
         setTimeout(() => {
           navigate('/dash'); // Redirect to dashboard after 2 seconds
         }, 2000);
-
+console.log("message: ","works")
 
       } else{
         alert('Error creating event ticket, please try again.', error);
@@ -48,33 +48,7 @@ function Checkout({ eventPrice, eventId, eventName }) {
     }
   };
 
-
-  const freeEventSubscription = async (e)=>{
-    e.preventDefault();
-    setLoading(true); // Show spinner
-    
-    try {
-      const status = await checkoutJob(eventId); // Ensure the correct value is returned
-      if (status) {
-        setSuccess(true); // Show success message and hide form
-        setTimeout(() => {
-          navigate('/dash'); // Redirect to dashboard after 2 seconds
-        }, 2000);
-
-      } else{
-        alert('Error creating event ticket, please try again.', error);
-        
-      }
-    } catch (error) {
-      alert('Error signing up for event, please try again.', error);
-      console.error('create event signup error:', error); // Log the error for debugging
-    } finally {
-      setLoading(false); // Hide spinner
-    }
-
-  }
-
-  console.log("event type + ", eventPrice >= 2 ? `paid event at ${eventPrice}` : `free event ${eventPrice}`)
+  console.log("event type + ", eventPrice >= 1 ? `paid event at` : "free event")
 
   return (
     <div className="checkout-container">
@@ -98,37 +72,23 @@ function Checkout({ eventPrice, eventId, eventName }) {
         </div>
       )}
 
- {success ? (
-  <div className="success-message">
-    <h2>Payment Complete!</h2>
-    <p>Thank you for signing up! You will be redirected shortly.</p>
-    <Link className="cancel-links" to="/">
-      <button className="cancel-btn">Back Home</button>
-    </Link>
-  </div>
-) : (
-  <form onSubmit={handleSubmit} className="checkout-form">
-    {eventPrice < 2 ? (
-      <Button type="primary" className="free-event-button" onClick={freeEventSubscription}>
-        Join Free Event
-      </Button>
-    ) : (
-      <>
-        <Payments
-          eventName={eventName}
-          price={eventPrice}
-          customerName={user?.userName}
-          customerContact={user?.phone}
-          customerEmail={user?.userEmail}
-        />
-      </>
-    )}
-    <Link className="cancel-links" to="/">
-      <Button className="cancel-btn">Back Home</Button>
-    </Link>
-  </form>
-)}
+      {success ? (
+        <div className="success-message">
+          <h2>Payment Complete!</h2>
+          <p>Thank you for signing up! You will be redirected shortly.</p>
+          <Link className="cancel-links" to="/">
+            <button className="cancel-btn">Back Home</button>
+          </Link>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="checkout-form">
 
+          <Payments eventName={eventName} price={eventPrice} customerName={user?.userName} customerContact={user?.phone} customerEmail={user?.userEmail} />
+          <Link className="cancel-links" to="/">
+            <Button className="cancel-btn">Back Home</Button>
+          </Link>
+        </form>
+      )}
     </div>
   );
 }

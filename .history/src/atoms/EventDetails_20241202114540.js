@@ -34,7 +34,7 @@ function EventDetails() {
 <p className='ed-evnt-desc'><span className='eded-span'>Host: </span>{event?.eventHost}</p>
 <p className='ed-evnt-desc'><span className='eded-span'>Location: </span>{event?.eventLocation}</p>
 <p className='ed-evnt-desc'><span className='eded-span'>Type: </span>{event?.eventType}</p>
-<p className='ed-evnt-desc'><span className='eded-span'>Pricing: </span>{event?.eventPrice >= 2 ? event?.eventPrice : "Free Entry"}</p>
+<p className='ed-evnt-desc'><span className='eded-span'>Pricing: </span>{event?.eventPrice >= 2 ? event?eventPrice : "Free Entry"}</p>
 
 </div>
 

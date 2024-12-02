@@ -108,8 +108,8 @@ function Checkout({ eventPrice, eventId, eventName }) {
   </div>
 ) : (
   <form onSubmit={handleSubmit} className="checkout-form">
-    {eventPrice < 2 ? (
-      <Button type="primary" className="free-event-button" onClick={freeEventSubscription}>
+    {eventPrice < 1 ? (
+      <Button type="primary" className="" onClick={freeEventSubscription}>
         Join Free Event
       </Button>
     ) : (

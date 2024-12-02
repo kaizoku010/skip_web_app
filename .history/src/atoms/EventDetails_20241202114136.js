@@ -14,8 +14,6 @@ function EventDetails() {
   const { id } = useParams();
   const event = events.find(event => event.eventId === id);
  
-
-  // const eventPrice = event.eventPrice => 2 ? eventPrice : "Free Entry"
   return (
 
     <div className='event-details-container'>
@@ -34,7 +32,7 @@ function EventDetails() {
 <p className='ed-evnt-desc'><span className='eded-span'>Host: </span>{event?.eventHost}</p>
 <p className='ed-evnt-desc'><span className='eded-span'>Location: </span>{event?.eventLocation}</p>
 <p className='ed-evnt-desc'><span className='eded-span'>Type: </span>{event?.eventType}</p>
-<p className='ed-evnt-desc'><span className='eded-span'>Pricing: </span>{event?.eventPrice >= 2 ? event?.eventPrice : "Free Entry"}</p>
+<p className='ed-evnt-desc'><span className='eded-span'>Pricing: </span>{event?.eventPrice }</p>
 
 </div>
 

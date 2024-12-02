@@ -34,7 +34,7 @@ function Checkout({ eventPrice, eventId, eventName }) {
         setTimeout(() => {
           navigate('/dash'); // Redirect to dashboard after 2 seconds
         }, 2000);
-
+console.log("message: ","works")
 
       } else{
         alert('Error creating event ticket, please try again.', error);
@@ -49,9 +49,10 @@ function Checkout({ eventPrice, eventId, eventName }) {
   };
 
 
-  const freeEventSubscription = async (e)=>{
+  const freeEventSubscription = async ()=>{
     e.preventDefault();
     setLoading(true); // Show spinner
+
     
     try {
       const status = await checkoutJob(eventId); // Ensure the correct value is returned
@@ -60,6 +61,7 @@ function Checkout({ eventPrice, eventId, eventName }) {
         setTimeout(() => {
           navigate('/dash'); // Redirect to dashboard after 2 seconds
         }, 2000);
+console.log("message: ","works")
 
       } else{
         alert('Error creating event ticket, please try again.', error);
@@ -108,8 +110,8 @@ function Checkout({ eventPrice, eventId, eventName }) {
   </div>
 ) : (
   <form onSubmit={handleSubmit} className="checkout-form">
-    {eventPrice < 2 ? (
-      <Button type="primary" className="free-event-button" onClick={freeEventSubscription}>
+    {eventPrice < 1 ? (
+      <Button type="primary" onClick={freeEventSubscription}>
         Join Free Event
       </Button>
     ) : (
