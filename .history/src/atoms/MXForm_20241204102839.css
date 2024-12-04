@@ -476,7 +476,8 @@ flex-direction: column;
 
 @media only screen and (max-width: 600px) {
   .form-holder {
-    display: flex !important;
+    display: flex !important
+;
     flex-direction: column !important;
     width: 100% !important;
     height: 100% !important;

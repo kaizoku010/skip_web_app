@@ -6,14 +6,13 @@ import { Input } from "antd";
 import { BellFilled } from "@ant-design/icons";
 import { WechatOutlined } from "@ant-design/icons";
 import { AppstoreFilled } from "@ant-design/icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Popover, Avatar } from "antd";
 import Notifications from "./Notifications";
 import { AuthContext } from "../logic/AuthContext";
 
 function DashHeader({ user }) {
   const { logout } = useContext(AuthContext);
-  const navigate = useNavigate()
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -91,7 +90,7 @@ function DashHeader({ user }) {
   //LOGOUT FUNCTION
   const logout_ = (newOpen) => {
     setOpen4(newOpen);
-    navigate("/")
+    
   };
   return (
     <div className="header2">

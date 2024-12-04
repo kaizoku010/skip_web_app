@@ -53,8 +53,8 @@
   .remember-me-group {
     background: left;
     text-align: left !important;
-    margin-top: .5rem !important;
-    margin-left: 1rem !important;
+    margin-top: .5rem;
+    margin-left: 1rem;
     color: gray;
 }
 
@@ -174,8 +174,8 @@
   }
 
   .skip_logo {
-    width: 29%;
-    /* display: none; */
+    width: 55%;
+    display: none;
     margin-bottom: -3%;
 }
 

@@ -26,7 +26,7 @@ function UserDetailsBar() {
   const sameIndustryUsers = attendingUsers?.filter(user_ => user_?.industry === user?.industry);
   // console.log("people you may know: ", sameIndustryUsers)
 
-  const filteredUsers = sameIndustryUsers?.filter(user_ => user_?.email !== user?.userEmail);
+  const filteredUsers = sameIndustryUsers?.filter(user_ => user_.email !== user.userEmail);
 
 
 

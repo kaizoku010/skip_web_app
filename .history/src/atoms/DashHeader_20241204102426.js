@@ -13,7 +13,6 @@ import { AuthContext } from "../logic/AuthContext";
 
 function DashHeader({ user }) {
   const { logout } = useContext(AuthContext);
-  const navigate = useNavigate()
   const [open, setOpen] = useState(false);
   const [open1, setOpen1] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -91,7 +90,7 @@ function DashHeader({ user }) {
   //LOGOUT FUNCTION
   const logout_ = (newOpen) => {
     setOpen4(newOpen);
-    navigate("/")
+    nav
   };
   return (
     <div className="header2">

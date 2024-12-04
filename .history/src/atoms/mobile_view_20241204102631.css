@@ -174,8 +174,8 @@
   }
 
   .skip_logo {
-    width: 29%;
-    /* display: none; */
+    width: 55%;
+    display: none;
     margin-bottom: -3%;
 }
 

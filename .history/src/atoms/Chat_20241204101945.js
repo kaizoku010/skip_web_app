@@ -39,7 +39,7 @@ const Chat = () => {
   const [lastReadMessages, setLastReadMessages] = useState({});
 
   const userEvents = events.find((event) =>
-    event.attendees?.some((attendee) => attendee.userEmail === user?.userEmail)
+    event.attendees.some((attendee) => attendee.userEmail === user?.userEmail)
   );
 
   useEffect(() => {

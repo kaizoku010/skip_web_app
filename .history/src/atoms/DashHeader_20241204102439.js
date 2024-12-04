@@ -91,7 +91,7 @@ function DashHeader({ user }) {
   //LOGOUT FUNCTION
   const logout_ = (newOpen) => {
     setOpen4(newOpen);
-    navigate("/")
+    nav
   };
   return (
     <div className="header2">

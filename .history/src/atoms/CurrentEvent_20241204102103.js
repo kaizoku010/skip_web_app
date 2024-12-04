@@ -53,7 +53,7 @@ function CurrentEvent({ user, events }) {
   };
 
   const userEvent = events.find((event) =>
-    event.attendees?.some((attendee) => attendee.userEmail === user?.userEmail)
+    event?.attendees.some((attendee) => attendee.userEmail === user?.userEmail)
   );
 
   if (!userEvent) {
