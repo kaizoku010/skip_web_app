@@ -68,7 +68,7 @@ function CurrentEvent({ user, events }) {
             Click Me 
           </Link>
           <p className="no_event_found_txt">
-OR Refresh page if you already signed up for an event.          
+OR Refresh page to           
 </p>        </div>
       </div>
     );

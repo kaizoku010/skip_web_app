@@ -68,8 +68,8 @@ function CurrentEvent({ user, events }) {
             Click Me 
           </Link>
           <p className="no_event_found_txt">
-OR Refresh page if you already signed up for an event.          
-</p>        </div>
+            Sorry, but you will have to sign-up for one of our events to unlock the app!
+          </p>        </div>
       </div>
     );
   }
